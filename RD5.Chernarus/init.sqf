@@ -7,7 +7,7 @@ cutText ["","BLACK OUT"];
 enableSaving [false, false];
 
 //REALLY IMPORTANT VALUES
-dayZ_instance =	11;					//The instance
+dayZ_instance =	1;					//The instance
 dayzHiveRequest = [];
 initialized = false;
 dayz_previousID = 0;
@@ -20,13 +20,17 @@ enableRadio false;
 enableSentences false;
 
 // DayZ Epoch config
-spawnShoremode = 1; // Default = 1 (on shore)
+spawnShoremode = 0; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 MaxHeliCrashes= 5; // Default = 5
-MaxVehicleLimit = 300; // Default = 50
+MaxVehicleLimit = 0; // Default = 50
 MaxDynamicDebris = 500; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
-dayz_maxLocalZombies = 30; // Default = 30 
+dayz_maxLocalZombies = 50; // Default = 30
+dayz_maxGlobalZombiesInit = 20; // Default = 15
+dayz_maxGlobalZombiesIncrease = 7; // Default = 5
+dayz_maxZeds = 800; // Default = 500
+dayz_paraSpawn = true;
 
 dayz_paraSpawn = false;
 
@@ -34,8 +38,8 @@ dayz_sellDistance_vehicle = 10;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
-dayz_maxAnimals = 8; // Default: 8
-dayz_tameDogs = true;
+dayz_maxAnimals = 1; // Default: 8
+dayz_tameDogs = false;
 DynamicVehicleDamageLow = 0; // Default: 0
 DynamicVehicleDamageHigh = 100; // Default: 100
 
@@ -87,3 +91,13 @@ if (!isDedicated) then {
 execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
 
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+//GD EDITS
+dayZ_serverName = "GD-RD5";
+if (!isNil "dayZ_serverName") then {
+	[] spawn {
+		waitUntil {(!isNull Player) and (alive Player) and (player == player)};
+		waituntil {!(isNull (findDisplay 46))};
+		5 cutRsc ["wm_disp","PLAIN"];
+		((uiNamespace getVariable "wm_disp") displayCtrl 1) ctrlSetText dayZ_serverName;
+	};
+};
