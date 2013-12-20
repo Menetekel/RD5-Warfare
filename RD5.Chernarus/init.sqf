@@ -32,8 +32,6 @@ dayz_maxGlobalZombiesIncrease = 7; // Default = 5
 dayz_maxZeds = 800; // Default = 500
 dayz_paraSpawn = true;
 
-dayz_paraSpawn = false;
-
 dayz_sellDistance_vehicle = 10;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
@@ -68,7 +66,7 @@ if (isServer) then {
 	_bar = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\barracks.sqf";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 };
-
+[] execVM "germandayz\safezone\safezone.sqf";
 if (!isDedicated) then {
 	//Conduct map operations
 	0 fadeSound 0;
