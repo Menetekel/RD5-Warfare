@@ -1,4 +1,5 @@
 waituntil {!isnil "bis_fnc_init"};
+[] execVM "\z\addons\dayz_server\init\AH.sqf";
 
 BIS_MPF_remoteExecutionServer = {
 	if ((_this select 1) select 2 == "JIPrequest") then {
