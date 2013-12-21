@@ -101,3 +101,5 @@ if (!isNil "dayZ_serverName") then {
 		((uiNamespace getVariable "wm_disp") displayCtrl 1) ctrlSetText dayZ_serverName;
 	};
 };
+//Weihnachtsspecial/Neujahr
+		[] execVM "germandayz\weihnachten\config.sqf"; 
