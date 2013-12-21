@@ -1216,7 +1216,7 @@ class Mission
 		{
 			position[]={4069.8455,365.19922,11661.84};
 			name="Tradercitybash";
-			text="Trader City Bash";
+			text="Trader City Bash - SAFEZONE";
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
@@ -1224,7 +1224,7 @@ class Mission
 		{
 			position[]={11469.787,317.32358,11356.751};
 			name="Tradercityklen";
-			text="Trader City Klen";
+			text="Trader City Klen - SAFEZONE";
 			type="mil_circle";
 			colorName="ColorGreen";
 		};
@@ -1232,7 +1232,7 @@ class Mission
 		{
 			position[]={6345.6113,306.13721,7808.5073};
 			name="Tradercitystary";
-			text="Trader City Stary";
+			text="Trader City Stary - NOT SAFE";
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
@@ -1272,7 +1272,7 @@ class Mission
 		{
 			position[]={12945.273,209.10101,12751.496};
 			name="HeroVendor";
-			text="Hero Vendor";
+			text="Hero Vendor - SAFEZONE";
 			type="mil_dot";
 			colorName="ColorBlue";
 		};
@@ -1295,7 +1295,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=3;
+		items=4;
 		class Item0
 		{
 			position[]={4053.8501,364.76645,11668.645};
@@ -1305,8 +1305,8 @@ class Mission
 			age="UNKNOWN";
 			name="zonebash";
 			expCond="(player distance zonebash) < 100;";
-			expActiv="TitleText[""Now entering trader city Bash"",""PLAIN DOWN""]; canbuild = false;";
-			expDesactiv="TitleText[""Now leaving trader city Bash"",""PLAIN DOWN""]; canbuild = true;";
+			expActiv="TitleText[""Now entering trader city Bash"",""PLAIN DOWN""]; inSafeZone = true; canbuild = false;";
+			expDesactiv="TitleText[""Now leaving trader city Bash"",""PLAIN DOWN""]; inSafeZone = false; canbuild = true;";
 			class Effects
 			{
 			};
@@ -1320,8 +1320,8 @@ class Mission
 			age="UNKNOWN";
 			name="zoneklen";
 			expCond="(player distance zoneklen) < 100;";
-			expActiv="TitleText[""Now entering trader city Klen"",""PLAIN DOWN""]; canbuild = false;";
-			expDesactiv="TitleText[""Now leaving trader city Klen"",""PLAIN DOWN""]; canbuild = true;";
+			expActiv="TitleText[""Now entering trader city Klen"",""PLAIN DOWN""]; inSafeZone = true; canbuild = false;";
+			expDesactiv="TitleText[""Now leaving trader city Klen"",""PLAIN DOWN""]; inSafeZone = false; canbuild = true;";
 			class Effects
 			{
 			};
@@ -1337,6 +1337,23 @@ class Mission
 			expCond="(player distance zonestary) < 100;";
 			expActiv="TitleText[""Now entering trader city Stary"",""PLAIN DOWN""]; canbuild = false;";
 			expDesactiv="TitleText[""Now leaving trader city Stary"",""PLAIN DOWN""]; canbuild = true;";
+			class Effects
+			{
+			};
+		};
+		class Item3
+		{
+			position[]={12944.227,210.19823,12766.889};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zonehero";
+			expCond="(player distance zonehero) < 100;";
+			expActiv="canbuild = false; inSafeZone = true; inTraderCity = ""Hero Trader"";";
+			expDesactiv="canbuild = true; inSafeZone = false; inTraderCity = ""Any"";";
 			class Effects
 			{
 			};
