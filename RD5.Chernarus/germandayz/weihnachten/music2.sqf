@@ -2,6 +2,6 @@
 if (isNil "music") then {
 music = false;
 };
-if (music = ture) then {
+if (music = true) then {
 playsound "introSong";
 }; 
