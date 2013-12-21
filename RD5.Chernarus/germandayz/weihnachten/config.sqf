@@ -1,11 +1,11 @@
 // SnowStorm:
 if (!isDedicated) then {
-    [] execVM "weihnachten\effects.sqf";
+    [] execVM "germandayz\weihnachten\effects.sqf";
 };
 //intro music
-[] execVM "weihnachten\music.sqf";
+[] execVM "germandayz\weihnachten\music.sqf";
 //Trader snow
-[] execVM "weihnachten\snow.sqf";
+[] execVM "germandayz\weihnachten\snow.sqf";
 // Trader music
-[] execVM "weihnachten\weihnachtsmusic.sqf";
-[] execVM "weihnachten\music2.sqf";
+[] execVM "germandayz\weihnachten\weihnachtsmusic.sqf";
+[] execVM "germandayz\weihnachten\music2.sqf";
