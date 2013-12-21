@@ -5,7 +5,7 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 	- [] call fnc_usec_selfActions;
 ************************************************************/
 private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehicle","_inVehicle","_hasFuelE","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_canDo","_text","_isHarvested","_isVehicle","_isVehicletype","_isMan","_traderType","_ownerID","_isAnimal","_isDog","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_Unlock","_lock","_buy","_dogHandle","_lieDown","_warn","_hastinitem","_allowedDistance","_menu","_menu1","_humanity_logic","_low_high","_cancel","_metals_trader","_traderMenu","_isWreck","_isRemovable","_isDisallowRepair","_rawmeat","_humanity","_speed","_dog","_hasbottleitem","_isAir","_isShip","_playersNear","_findNearestGens","_findNearestGen","_IsNearRunningGen","_cursorTarget","_isnewstorage","_itemsPlayer","_ownerKeyId","_typeOfCursorTarget","_hasKey","_oldOwner","_combi","_key_colors","_player_deleteBuild","_player_flipveh","_player_lockUnlock_crtl","_player_butcher","_player_studybody","_player_cook","_player_boil","_hasFuelBarrelE","_hasHotwireKit","_player_SurrenderedGear","_isSurrendered","_isModular","_ownerKeyName","_temp_keys_names"];
-
+_uid = getPlayerUID;
 if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
 
 _vehicle = vehicle player;
@@ -210,14 +210,14 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		if(_isDestructable or _isWreck or _isRemovable or _isWreckBuilding) then {
 			if(_hasToolbox and "ItemCrowbar" in _itemsPlayer) then {
 				_buildOwner = _cursorTarget getVariable["CharacterID","0"];
-				if (dayz_playerUID == _buildOwner) then {
+				if (_uid == _buildOwner) then {
 				_player_deleteBuild = true;
 				};
 			};
 		};
 		
 		//Allow owners to delete modulars
-                if(_isModular and (dayz_playerUID == _ownerID)) then {
+                if(_isModular and (_uid == _ownerID)) then {
                         if(_hasToolbox and "ItemCrowbar" in _itemsPlayer) then {
                                 _player_deleteBuild = true;
                         };
@@ -257,7 +257,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	if(_player_lockUnlock_crtl) then {
 		if (s_player_lockUnlock_crtl < 0) then {
 			_hasKey = _ownerID in _temp_keys;
-			_oldOwner = (_ownerID == dayz_playerUID);
+			_oldOwner = (_ownerID == _uid);
 			if(locked _cursorTarget) then {
 				if(_hasKey or _oldOwner) then {
 					_Unlock = player addAction [format["Unlock %1",_text], "\z\addons\dayz_code\actions\unlock_veh.sqf",[_cursorTarget,(_temp_keys_names select (parseNumber _ownerID))], 2, true, true, "", ""];
@@ -467,7 +467,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	if((_typeOfCursorTarget in DZE_LockableStorage) and _ownerID != "0" and (player distance _cursorTarget < 3)) then {
 		if (s_player_unlockvault < 0) then {
 			if(_typeOfCursorTarget in DZE_LockedStorage) then {
-				if(_ownerID == dayz_combination or _ownerID == dayz_playerUID) then {
+				if(_ownerID == dayz_combination or _ownerID == _uid) then {
 					_combi = player addAction [format["Open %1",_text], "\z\addons\dayz_code\actions\vault_unlock.sqf",_cursorTarget, 0, false, true, "",""];
 					s_player_combi set [count s_player_combi,_combi];
 				} else {
@@ -476,7 +476,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 				};
 				s_player_unlockvault = 1;
 			} else {
-				if(_ownerID != dayz_combination and _ownerID != dayz_playerUID) then {
+				if(_ownerID != dayz_combination and _ownerID != _uid) then {
 					_combi = player addAction ["Re-Enter Combination", "\z\addons\dayz_code\actions\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
 					s_player_combi set [count s_player_combi,_combi];
 					s_player_unlockvault = 1;
@@ -492,11 +492,11 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	if(_typeOfCursorTarget in DZE_UnLockedStorage and _ownerID != "0" and (player distance _cursorTarget < 3)) then {
 
 		if (s_player_lockvault < 0) then {
-			if(_ownerID == dayz_combination or _ownerID == dayz_playerUID) then {
+			if(_ownerID == dayz_combination or _ownerID == _uid) then {
 				s_player_lockvault = player addAction [format["Lock %1",_text], "\z\addons\dayz_code\actions\vault_lock.sqf",_cursorTarget, 0, false, true, "",""];
 			};
 		};
-		if (s_player_packvault < 0 and (_ownerID == dayz_combination or _ownerID == dayz_playerUID)) then {
+		if (s_player_packvault < 0 and (_ownerID == dayz_combination or _ownerID == _uid)) then {
 			s_player_packvault = player addAction [format["<t color='#ff0000'>Pack %1</t>",_text], "\z\addons\dayz_code\actions\vault_pack.sqf",_cursorTarget, 0, false, true, "",""];
 		};
 	} else {
