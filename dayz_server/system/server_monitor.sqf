@@ -136,6 +136,10 @@ if (isServer and isNil "sm_done") then {
 
 			_object setVariable ["CharacterID", _ownerID, true];
 			
+		    //Entfernt Waffe beim Serverneustart von Vehiclen die in der fnc_remWep.sqf definiert sind
+            call fnc_remWep;
+			//Ende des Entfernens
+			
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
 			// _object setVehicleAmmo DZE_vehicleAmmo;

@@ -30,6 +30,8 @@ server_spawnEvents =		compile preprocessFileLineNumbers "\z\addons\dayz_server\c
 //server_weather =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_weather.sqf";
 
 fnc_plyrHit   =				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
+//Fnc zum Entfernen der Waffe
+fnc_remWep =                compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_remWep.sqf";
 server_deaths = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
 
 

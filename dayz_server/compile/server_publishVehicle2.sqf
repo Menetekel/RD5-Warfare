@@ -90,6 +90,10 @@ _key call server_hiveWrite;
 		// Lock vehicle
 		_object setvehiclelock "locked";
 	};
+	
+	//Entfernt Waffen beim Traderkauf von Vehiclen die in der fnc_remWep.sqf definiert sind
+    call fnc_remWep;
+	//Ende des Entfernens
 
 	clearWeaponCargoGlobal  _object;
 	clearMagazineCargoGlobal  _object;

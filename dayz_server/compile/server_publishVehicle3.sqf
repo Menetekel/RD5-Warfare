@@ -71,6 +71,10 @@ _key call server_hiveWrite;
 	_magazines = 	getMagazineCargo _object;
 	_backpacks = 	getBackpackCargo _object;
 
+	//Entfernt Waffen beim Randomspawn von Vehiclen die in der fnc_remWep.sqf definiert sind
+    call fnc_remWep;
+	//Ende des Entfernens
+	
 	clearWeaponCargoGlobal  _object;
 	clearMagazineCargoGlobal  _object;
 	clearBackpackCargoGlobal _object;
