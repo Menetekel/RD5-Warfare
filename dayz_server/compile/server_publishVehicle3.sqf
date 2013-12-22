@@ -71,12 +71,6 @@ _key call server_hiveWrite;
 	_magazines = 	getMagazineCargo _object;
 	_backpacks = 	getBackpackCargo _object;
 
-    //Jedes Vehicle eintragen welches Waffen entfernt haben soll und welche Waffe - Entfernt Waffe beim Randomspawn
-    if (_object isKindOf "GAZ_Vodnik_HMG") then {
-            _object removeWeapon "2A42";
-            _object removeMagazine "1500Rnd_762x54_PKT";
-            };
-	//Ende des Entfernens
 	clearWeaponCargoGlobal  _object;
 	clearMagazineCargoGlobal  _object;
 	clearBackpackCargoGlobal _object;

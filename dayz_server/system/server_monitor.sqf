@@ -136,13 +136,6 @@ if (isServer and isNil "sm_done") then {
 
 			_object setVariable ["CharacterID", _ownerID, true];
 			
-		    //Jedes Vehicle eintragen welches Waffen entfernt haben soll und welche Waffe - Entfernt Waffe beim Serverneustart
-            if (_object isKindOf "GAZ_Vodnik_HMG") then {
-            _object removeWeapon "2A42";
-            _object removeMagazine "1500Rnd_762x54_PKT";
-            };
-			//Ende des Entfernens
-			
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
 			// _object setVehicleAmmo DZE_vehicleAmmo;
