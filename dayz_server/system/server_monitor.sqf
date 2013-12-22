@@ -146,6 +146,12 @@ if (isServer and isNil "sm_done") then {
 				_object enableSimulation false;
 				// used for inplace upgrades and lock/unlock of safe
 				_object setVariable ["OEMPos", _pos, true];
+				//Building Godmode
+				if ((typeOf _object) in ["CinderWall_DZ","Land_HBarrier5_DZ","Plastic_Pole_EP1_DZ","Land_HBarrier3_DZ","Land_HBarrier1_DZ","MetalFloor_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorLocked_DZ"]) then {
+					_object addEventHandler ["HandleDamage", {false}];
+					_object enableSimulation false;
+					//diag_log format["SetGod for Obj: %1", _object];
+				};
 			};
 			
 			_object setdir _dir;

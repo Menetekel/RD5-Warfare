@@ -1218,7 +1218,7 @@ class Mission
 			name="Tradercitybash";
 			text="Trader City Bash - SAFEZONE";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item8
 		{
@@ -1234,7 +1234,7 @@ class Mission
 			name="Tradercitystary";
 			text="Trader City Stary - NOT SAFE";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorPink";
 		};
 		class Item10
 		{
@@ -1255,17 +1255,17 @@ class Mission
 		class Item12
 		{
 			position[]={5068.6636,338.99176,9723.4248};
-			name="Airplane Dealer";
-			text="Airplane Dealer";
-			type="mil_dot";
-			colorName="ColorBlue";
+			name="Airplane Dealer NWA";
+			text="Airplane Dealer NWA";
+			type="Airport";
+			colorName="ColorOrange";
 		};
 		class Item13
 		{
 			position[]={8385.834,1.6642252,2368.8264};
 			name="Boat Dealer";
 			text="Boat Dealer";
-			type="mil_dot";
+			type="Depot";
 			colorName="ColorOrange";
 		};
 		class Item14
@@ -1273,7 +1273,7 @@ class Mission
 			position[]={12945.273,209.10101,12751.496};
 			name="HeroVendor";
 			text="Hero Vendor - SAFEZONE";
-			type="mil_dot";
+			type="Defend";
 			colorName="ColorBlue";
 		};
 		class Item15
@@ -1281,7 +1281,7 @@ class Mission
 			position[]={13093.446,0.42457402,8241.5625};
 			name="Boat Dealer_1";
 			text="Boat Dealer";
-			type="mil_dot";
+			type="Depot";
 			colorName="ColorOrange";
 		};
 		class Item16
@@ -1289,7 +1289,7 @@ class Mission
 			position[]={1610.4834,283.97122,7781.9917};
 			name="BanditVendor";
 			text="Bandit Vendor";
-			type="mil_dot";
+			type="FireMission";
 			colorName="ColorRed";
 		};
 	};
