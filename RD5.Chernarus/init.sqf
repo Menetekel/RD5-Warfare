@@ -20,7 +20,7 @@ enableRadio false;
 enableSentences false;
 
 // DayZ Epoch config
-spawnShoremode = 0; // Default = 1 (on shore)
+spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 MaxHeliCrashes= 5; // Default = 5
 MaxVehicleLimit = 0; // Default = 50
@@ -43,6 +43,14 @@ DynamicVehicleDamageHigh = 100; // Default: 100
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
 dayz_fullMoonNights = true;
+DZE_TRADER_SPAWNMODE = true; // true = vehicle will para spawn, false = normal spawn mode
+
+//spawnmode
+DefaultMagazines = ["ItemBandage","ItemPainkiller"]; 
+DefaultWeapons = ["ItemFlashlight","ItemHatchet_DZE"]; 
+DefaultBackpack = ""; 
+DefaultBackpackWeapon = "";
+//spawnmode
 
 //Load in compiled functions
 //call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\variables.sqf";				//Initilize the Variables (IMPORTANT: Must happen very early)

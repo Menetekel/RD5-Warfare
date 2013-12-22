@@ -16,21 +16,6 @@ if (true) then
   _this setPos [12277.733, 12566.371, -1.5258789e-005];
 };
 
-_this = createCenter west;
-_center_0 = _this;
-
-_group_5 = createGroup _center_0;
-
-_unit_5 = objNull;
-if (true) then
-{
-  _this = _group_5 createUnit ["BAF_Soldier_AA_W", [4729.2241, 838.97461, 0], [], 0, "CAN_COLLIDE"];
-  _unit_5 = _this;
-  _this setUnitAbility 0.60000002;
-  if (true) then {_group_5 selectLeader _this;};
-  if (true) then {selectPlayer _this;};
-};
-
 _vehicle_518 = objNull;
 if (true) then
 {
@@ -260,5 +245,3 @@ if (true) then
   _this setDir 164.40305;
   _this setPos [12261.46, 12573.697, 3.0517578e-005];
 };
-
-

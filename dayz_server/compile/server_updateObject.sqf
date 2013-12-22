@@ -11,6 +11,7 @@ if(isNull(_object)) exitWith {
 
 _type = 	_this select 1;
 _parachuteWest = ((typeOf _object == "ParachuteWest") or (typeOf _object == "ParachuteC"));
+_tempbike = (typeOf _object == "Old_bike_TK_CIV_EP1");
 _isbuildable = (typeOf _object) in dayz_allowedObjects;
 _isNotOk = false;
 _firstTime = false;
@@ -25,7 +26,7 @@ if ((typeName _objectID != "string") || (typeName _uid != "string")) then
     _objectID = "0";
     _uid = "0";
 };
-if (!_parachuteWest and !(locked _object)) then {
+if (!_parachuteWest and !(locked _object) and !_tempBike) then {
 	if (_objectID == "0" && _uid == "0") then
 	{
 		_object_position = getPosATL _object;
