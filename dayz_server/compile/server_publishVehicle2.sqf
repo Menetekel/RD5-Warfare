@@ -90,6 +90,13 @@ _key call server_hiveWrite;
 		// Lock vehicle
 		_object setvehiclelock "locked";
 	};
+	
+	//Jedes Vehicle eintragen welches Waffen entfernt haben soll und welche Waffe - Entfernt Waffe beim Traderspawn
+    if (_object isKindOf "GAZ_Vodnik_HMG") then {
+            _object removeWeapon "2A42";
+            _object removeMagazine "1500Rnd_762x54_PKT";
+            };
+	//Ende des Entfernens
 
 	clearWeaponCargoGlobal  _object;
 	clearMagazineCargoGlobal  _object;
