@@ -469,7 +469,7 @@ if (_hasrequireditem) then {
 		if (_proceed) then {
 	
 			_num_removed = ([player,_item] call BIS_fnc_invRemove);
-			if (_classname in ["Plastic_Pole_EP1_DZ","Land_HBarrier5_DZ","Land_HBarrier3_DZ","Land_HBarrier1_DZ","MetalFloor_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorLocked_DZ"]) then {
+			if (_classname in ["Plastic_Pole_EP1_DZ","Land_HBarrier5_DZ","Land_HBarrier3_DZ","Land_HBarrier1_DZ","MetalFloor_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorLocked_DZ","Cinderwall_DZ"]) then {
 			_tmpbuilt addEventHandler ["HandleDamage", {false}];
 			_tmpbuilt enableSimulation false;
 			};
