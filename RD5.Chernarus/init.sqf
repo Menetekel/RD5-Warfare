@@ -67,7 +67,9 @@ call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
-
+// Missions
+//dayz_spaceInterrupt = compile preprocessFileLineNumbers "extras\debug_monitor\dayz_spaceInterrupt.sqf";
+execVM "germandayz\side\init.sqf";
 if (isServer) then {
 	//Compile vehicle configs
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\rd5.Chernarus\dynamic_vehicle.sqf";				
