@@ -4,7 +4,7 @@
 /* ********************************************************************************* */
 
 // Mission System won't start a mission if server fps < mission_fps_check
-mission_fps_check = 10;
+mission_fps_check = 3;
 // Min Number of Players before mission will spawn
 mission_player_check = 1;
 
@@ -19,12 +19,12 @@ mission_warning_debug = true;
 
 
 // Number of Missions
-mission_min_number = 2;
-mission_max_number = 4;
+mission_min_number = 1;
+mission_max_number = 3;
 
 // Min / Max values for Timer, when to check to spawn a mission
-mission_spawn_timer_min = 650;
-mission_spawn_timer_max = 1500;
+mission_spawn_timer_min = 60; //default 650
+mission_spawn_timer_max = 120; //default 1500
 
 // Note Vehicles are destroyed at min timer value... 
 // Its on my todo list to code it to kill vehicles @ actual end of mission
@@ -84,10 +84,10 @@ mission_crates = ["GuerillaCacheBox","RUVehicleBox","UNBasicWeapons_EP1","USVehi
 mission_loot_tables = ["Military", "MilitaryIndustrial", "MilitarySpecial", "Supermarket", "Industrial", "HeliCrash_No50s", "SupplyDrop", "Farm"];
 
 // Number of Crates to Spawn
-mission_num_of_crates = 5;
+mission_num_of_crates = 2;
 
 // Number of Crates to Spawn, when there is a vehicle spawn aswell
-mission_num_of_crates_plus_vehicle = 3;
+mission_num_of_crates_plus_vehicle = 1;
 
 /* ********************************************************************************* */
 /* ********************************************************************************* */

@@ -78,6 +78,8 @@ if (isServer) then {
 	_bar = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\barracks.sqf";
 	_wka = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\wkamenka.sqf";
 	_bike = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\bikes.sqf";
+	_gm = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\greenmountain.sqf";
+	_klen = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\klen.sqf";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 };
 [] execVM "germandayz\safezone\safezone.sqf";

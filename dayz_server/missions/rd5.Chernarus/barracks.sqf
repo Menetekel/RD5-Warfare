@@ -142,15 +142,6 @@ if (true) then
   _this setPos [7160.2271, 7513.981, -3.0517578e-005];
 };
 
-_vehicle_564 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_dragonTeethBig", [11450.901, 11355.151], [], 0, "CAN_COLLIDE"];
-  _vehicle_564 = _this;
-  _this setDir -49.906906;
-  _this setPos [11450.901, 11355.151];
-};
-
 _vehicle_568 = objNull;
 if (true) then
 {

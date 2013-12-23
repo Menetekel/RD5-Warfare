@@ -95,7 +95,7 @@ mission_spawn_crash = {
 			if (_isNear) then {
 				if (_spawn_ammo) then {
 					{
-						[_x, "Random"] execVM "\z\addons\dayz_server\addons\missions\misc\fillBoxes.sqf";
+						[_x, "Random"] execVM "\z\addons\dayz_server\sidemissions\misc\fillBoxes.sqf";
 						sleep 1;
 					} forEach _crates;
 					_spawn_ammo = false;

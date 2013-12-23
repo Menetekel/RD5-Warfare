@@ -66,7 +66,7 @@ mission_heli_call_check = {
 
 mission_add_hunter = {
 
-	//RYD_Hunter_FSM_handle = [hunter1,mission_hunter_smell,mission_hunter_eyes,(units (group hunted1)),200,1] execFSM "\z\addons\dayz_server\addons\Missions\ai\RYD_Hunter\RYD_Hunter.fsm";
+	//RYD_Hunter_FSM_handle = [hunter1,mission_hunter_smell,mission_hunter_eyes,(units (group hunted1)),200,1] execFSM "\z\addons\dayz_server\sidemissions\Missions\ai\RYD_Hunter\RYD_Hunter.fsm";
 	//RYD_Hunter_FSM_handle ["_hunted", (units (group hunted1))];
 };
 
