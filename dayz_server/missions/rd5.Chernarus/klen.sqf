@@ -1,18 +1,19 @@
-_vehicle_221 = objNull;
+_vehicle_420 = objNull;
 if (true) then
 {
-  _this = createVehicle ["MAP_R2_Boulder1", [11459.775, 11376.827], [], 0, "CAN_COLLIDE"];
-  _vehicle_221 = _this;
-  _this setPos [11459.775, 11376.827];
+  _this = createVehicle ["Hhedgehog_concreteBig", [11460.432, 11372.831], [], 0, "CAN_COLLIDE"];
+  _vehicle_420 = _this;
+  _this setDir -17.0464;
+  _this setPos [11460.432, 11372.831];
 };
 
-_vehicle_222 = objNull;
+_vehicle_450 = objNull;
 if (true) then
 {
-  _this = createVehicle ["MAP_R2_Boulder2", [11460.993, 11373.985], [], 0, "CAN_COLLIDE"];
-  _vehicle_222 = _this;
-  _this setDir 51.081326;
-  _this setPos [11460.993, 11373.985];
+  _this = createVehicle ["Hhedgehog_concreteBig", [11454.441, 11375.852, 9.1552734e-005], [], 0, "CAN_COLLIDE"];
+  _vehicle_450 = _this;
+  _this setDir 70.833031;
+  _this setPos [11454.441, 11375.852, 9.1552734e-005];
 };
 
 _vehicle_224 = objNull;
@@ -29,15 +30,6 @@ if (true) then
   _this = createVehicle ["MAP_R2_Stone", [11462.736, 11374.764, -6.1035156e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_226 = _this;
   _this setPos [11462.736, 11374.764, -6.1035156e-005];
-};
-
-_vehicle_227 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_R2_Boulder2", [11433.919, 11363.426, -0.00012207031], [], 0, "CAN_COLLIDE"];
-  _vehicle_227 = _this;
-  _this setDir 649.03027;
-  _this setPos [11433.919, 11363.426, -0.00012207031];
 };
 
 _vehicle_2211 = objNull;

@@ -1,5 +1,17 @@
 // DayZ Epoch TRADERS for 17
-serverTraders = ["Tanny_PMC","Drake","BAF_Soldier_AAR_DDPM","US_Delta_Force_AR_EP1","US_Delta_Force_Medic_EP1","Soldier_MG_PKM_PMC","Soldier_MG_PMC","UN_CDF_Soldier_Crew_EP1","GUE_Soldier_1","Soldier_Sniper_PMC","UN_CDF_Soldier_Pilot_EP1","GUE_Soldier_3","BAF_Soldier_EN_MTP","UN_CDF_Soldier_Pilot_EP1","GUE_Worker2","Herrera_Light","Soldier_MG_PKM_PMC","Soldier_MG_PMC","GUE_Soldier_CO","RU_Damsel4","FR_Sykes","GUE_Villager4","TK_GUE_Warlord_EP1","GUE_Commander","GUE_Soldier_2","TK_GUE_Soldier_5_EP1","CIV_EuroWoman02_EP1","Dr_Annie_Baker_EP1","GUE_Soldier_Crew","Citizen3_EP1","ibr_lingorman6","ibr_lingorman6s","TK_CIV_Woman02_EP1","Damsel3"];
+serverTraders = ["BAF_Soldier_SniperN_W","Graves_Light_DZ","Tanny_PMC","Drake","BAF_Soldier_AAR_DDPM","US_Delta_Force_AR_EP1","US_Delta_Force_Medic_EP1","Soldier_MG_PKM_PMC","Soldier_MG_PMC","UN_CDF_Soldier_Crew_EP1","GUE_Soldier_1","Soldier_Sniper_PMC","UN_CDF_Soldier_Pilot_EP1","GUE_Soldier_3","BAF_Soldier_EN_MTP","UN_CDF_Soldier_Pilot_EP1","GUE_Worker2","Herrera_Light","Soldier_MG_PKM_PMC","Soldier_MG_PMC","GUE_Soldier_CO","RU_Damsel4","FR_Sykes","GUE_Villager4","TK_GUE_Warlord_EP1","GUE_Commander","GUE_Soldier_2","TK_GUE_Soldier_5_EP1","CIV_EuroWoman02_EP1","Dr_Annie_Baker_EP1","GUE_Soldier_Crew","Citizen3_EP1","ibr_lingorman6","ibr_lingorman6s","TK_CIV_Woman02_EP1","Damsel3"];
+// GreenMountain Special
+menu_BAF_Soldier_SniperN_W = [
+	[["Ammunition",478],["Military Armed",562],["Trucks Armed",479],["Event Weapons",696],["Event Ammo",700],["Event Vehicles",697],["Event Materials",698]],
+	[],
+	"neutral"
+];
+// GreenMountain Military
+menu_Graves_Light_DZ = [
+	[["Ammunition",478],["Special Weapons",693],["Special Ammo",699],["Special Explosives",694],["Special Vehicles",695]],
+	[],
+	"neutral"
+];
 // Hero Vendor
 menu_Tanny_PMC = [
 	[["Ammunition",478],["Clothes",476],["Helicopter Armed",493],["Military Armed",562],["Trucks Armed",479],["Weapons",477]],

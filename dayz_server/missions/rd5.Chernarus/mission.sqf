@@ -1,5 +1,3 @@
-
-
 _vehicle_2 = objNull;
 if (true) then
 {

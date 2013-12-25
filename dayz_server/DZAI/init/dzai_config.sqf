@@ -49,7 +49,7 @@ DZAI_readOverrideFile = true;
 */
 
 //(Optional) In most cases it is unnecessary to edit this setting. If the wrong DayZ mod is being detected, choose the correct one from the list above. 
-DZAI_modName = "";
+DZAI_modName = "epoch";
 
 
 /*	AI Unit Settings
@@ -81,11 +81,11 @@ DZAI_freeForAll = false;
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Enable or disable static AI spawns. If enabled, AI spawn points will be generated in cities, towns, and other predefined areas. Does not affect custom-defined spawns (Default: true).
-DZAI_staticAI = true;
+DZAI_staticAI = false;
 
 //Set minimum and maximum wait time in seconds to respawn an AI group after all units have been killed. Applies to both static AI and custom spawned AI (Default: Min 300, Max 600).									
-DZAI_respawnTimeMin = 300;
-DZAI_respawnTimeMax = 600;
+DZAI_respawnTimeMin = 600;
+DZAI_respawnTimeMax = 1200;
 
 //Time to allow spawned AI units to exist in seconds before being despawned when no players are present in a trigger area. Applies to both static AI and custom spawned AI (Default: 120)										
 DZAI_despawnWait = 120;										
@@ -113,7 +113,7 @@ DZAI_dynDespawnWait = 120;
 --------------------------------------------------------------------------------------------------------------------*/		
 
 //Maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
-DZAI_maxHeliPatrols = 0;
+DZAI_maxHeliPatrols = 1;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinA = 600;
@@ -121,7 +121,7 @@ DZAI_respawnTMaxA = 900;
 
 //Classnames of air vehicle types to use. Valid vehicle types: Helicopters and Planes (Default: "UH1H_DZ").
 //Air vehicles that are normally unarmed may have weapons added by DZAI (see "DZAI_airWeapons" setting below).								
-DZAI_heliTypes = ["UH1H_DZ"];	
+DZAI_heliTypes = ["UH1Y_DZE","BAF_Merlin_HC3_D","CH_47F_EP1_DZE","MH60S"];	
 
 //Specify vehicle weapon for air vehicles that are unarmed by default. DZAI will arm these air vehicles with the specified weapons upon spawning each vehicle.
 //NOTE: These classnames are not verified by DZAI - it is the user's responsibility to make sure they are valid and unbanned.
@@ -149,14 +149,14 @@ DZAI_airWeapons = [
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
-DZAI_maxLandPatrols = 1;
+DZAI_maxLandPatrols = 0;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinL = 600;
 DZAI_respawnTMaxL = 900;
 
 //Classnames of land vehicle types to use. (Default: "UAZ_Unarmed_TK_EP1")
-DZAI_vehTypes = ["UAZ_Unarmed_TK_EP1"];
+DZAI_vehTypes = ["UAZ_Unarmed_TK_EP1","BTR40_TK_INS_EP1","Pickup_PK_GUE","MAZ_543_SCUD_TK_EP1","HMMWV_M1035_DES_EP1"];
 
 
 /*	Extra AI Settings
@@ -169,7 +169,7 @@ DZAI_findKiller = true;
 DZAI_tempNVGs = false;	
 
 //Amount of humanity to reward player for killing an AI unit (Default: 0)									
-DZAI_humanityGain = 0;										
+DZAI_humanityGain = 15;										
 
 //If enabled, players with radios will be given text warnings if they are being pursued by AI groups. Text warnings include distance of pursuing AI group (Default: true)
 DZAI_radioMsgs = true;
@@ -186,15 +186,15 @@ DZAI_dynamicWeaponList = true;
 //Example: DZAI_banAIWeapons = ["M107_DZ","BAF_AS50_scoped"] will remove the M107 and AS50 from AI weapon tables if dynamic weapon list is enabled.								
 //Note: It is recommended to add all melee weapon classnames into this list as AI have issues using melee weapons. 
 //All melee weapons and crossbows present in DayZ 1.7.7.1 have been pre-banned ("Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails")
-DZAI_banAIWeapons = [];										
+DZAI_banAIWeapons = ["KSVK_DZE","M24_desert_EP1","DMR","DMR_DZ"];										
 
 //List of launcher-type weapons for mid/high-level AI to use (by default, weapongrade 1/2/3). If left empty, AI will not use launcher weapons. (Default: [])
 //If AI encounter an armored player vehicle, they will switch to a randomly-selected launcher-type weapon to engage. (Maximum 1 launcher per AI group).
 //Weapon classnames added here are verified if DZAI_verifyTables is set to true.
-DZAI_launcherTypes = [];	
+DZAI_launcherTypes = ["RPG7V"];	
 
 //List of AI weapongrades that are permitted to use launcher-type weapons. Individual custom weapongrade levels may be added to allow launcher use (Default: [1,2,3])
-DZAI_launcherLevels = [1,2,3];								
+DZAI_launcherLevels = [2,3];								
 
 
 /*	AI loot quantity settings
@@ -204,16 +204,16 @@ DZAI_launcherLevels = [1,2,3];
 DZAI_invmedicals = 1;
 
 //Number of selections of edible items (Inventory) 										
-DZAI_invedibles = 1;	
+DZAI_invedibles = 2;	
 
 //Number of selections of medical items (Backpack)									
 DZAI_bpmedicals = 1; 	
 
 //Number of selections of edible items (Backpack)									
-DZAI_bpedibles = 1;	
+DZAI_bpedibles = 2;	
 
 //Maximum number of items to select from DZAI_MiscItemS table.										
-DZAI_numMiscItemS = 3;						
+DZAI_numMiscItemS = 1;						
 
 //Maximum number of items to select from DZAI_MiscItemL table.				
 DZAI_numMiscItemL = 1;										
@@ -223,16 +223,16 @@ DZAI_numMiscItemL = 1;
 --------------------------------------------------------------------------------------------------------------------*/
 
 //Chance to add each medical item.
-DZAI_chanceMedicals = 0.70;	
+DZAI_chanceMedicals = 0.3;	
 
 //Chance to add each edible item.								
 DZAI_chanceEdibles = 0.75;
 
 //Chance to add random item from DZAI_MiscItemS table.									
-DZAI_chanceMiscItemS = 0.60;
+DZAI_chanceMiscItemS = 0.2;
 
 //Chance to add random item from DZAI_MiscItemL table.								
-DZAI_chanceMiscItemL = 0.10;								
+DZAI_chanceMiscItemL = 0.03;								
 
 
 /*AI weapon/skill probabilities (gradeChances should add up to 1.00) - [Civilian, Military, MilitarySpecial, HeliCrash] - Note: AI with higher grade weaponry will also have higher skill settings.

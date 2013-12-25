@@ -15,16 +15,16 @@ mission_player_check = 1;
 //		Look @ the supplied debug monitor to see how its done.
 //
 //	  If u dont like the debug monitor  set to false, it will display text warnings in the middle of the screen.
-mission_warning_debug = true;
+mission_warning_debug = false;
 
 
 // Number of Missions
 mission_min_number = 1;
-mission_max_number = 3;
+mission_max_number = 2;
 
 // Min / Max values for Timer, when to check to spawn a mission
-mission_spawn_timer_min = 60; //default 650
-mission_spawn_timer_max = 120; //default 1500
+mission_spawn_timer_min = 650; //default 650
+mission_spawn_timer_max = 1500; //default 1500
 
 // Note Vehicles are destroyed at min timer value... 
 // Its on my todo list to code it to kill vehicles @ actual end of mission
@@ -80,8 +80,8 @@ mission_hunter_random = false;  // Random Hunter on Map that will wander + try t
 
 // Type of Crates to Spawn with Loot
 mission_crates = ["GuerillaCacheBox","RUVehicleBox","UNBasicWeapons_EP1","USVehicleBox"];
-
-mission_loot_tables = ["Military", "MilitaryIndustrial", "MilitarySpecial", "Supermarket", "Industrial", "HeliCrash_No50s", "SupplyDrop", "Farm"];
+//mission_loot_tables = ["Military", "MilitaryIndustrial", "MilitarySpecial", "Supermarket", "Industrial", "HeliCrash_No50s", "SupplyDrop", "Farm"];
+mission_loot_tables = ["Military", "MilitaryIndustrial", "MilitarySpecial", "Supermarket", "Industrial","SupplyDrop", "Farm"];
 
 // Number of Crates to Spawn
 mission_num_of_crates = 2;

@@ -7,15 +7,6 @@ if (true) then
   _this setPos [3711.8037, 5986.7705, 0.073181108];
 };
 
-_vehicle_517 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_PowGen_Big", [3693.0715, 5968.5249, -6.1035156e-005], [], 0, "NONE"];
-  _vehicle_517 = _this;
-  _this setDir 5.3950329;
-  _this setPos [3693.0715, 5968.5249, -6.1035156e-005];
-};
-
 _vehicle_520 = objNull;
 if (true) then
 {
@@ -50,33 +41,6 @@ if (true) then
   _vehicle_540 = _this;
   _this setDir 131.52841;
   _this setPos [3716.1375, 5966.6152, 6.1035156e-005];
-};
-
-_vehicle_541 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_Gunrack1", [3715.4014, 5973.8096, 6.1035156e-005], [], 0, "NONE"];
-  _vehicle_541 = _this;
-  _this setDir -28.09333;
-  _this setPos [3715.4014, 5973.8096, 6.1035156e-005];
-};
-
-_vehicle_542 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_Gunrack2", [3716.6868, 5973.7656, -3.0517578e-005], [], 0, "NONE"];
-  _vehicle_542 = _this;
-  _this setDir -25.751513;
-  _this setPos [3716.6868, 5973.7656, -3.0517578e-005];
-};
-
-_vehicle_543 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_Gunrack_Empty", [3717.7522, 5973.3057], [], 0, "NONE"];
-  _vehicle_543 = _this;
-  _this setDir -24.312969;
-  _this setPos [3717.7522, 5973.3057];
 };
 
 _vehicle_544 = objNull;
@@ -208,10 +172,10 @@ if (true) then
 _vehicle_592 = objNull;
 if (true) then
 {
-  _this = createVehicle ["Mi8Wreck", [3682.1392, 5994.0229, 9.2450218], [], 0, "NONE"];
+  _this = createVehicle ["Mi8Wreck", [3677.7, 5991.9487, 9.2450218], [], 0, "NONE"];
   _vehicle_592 = _this;
-  _this setDir 86.30455;
-  _this setPos [3682.1392, 5994.0229, 9.2450218];
+  _this setDir -28.691393;
+  _this setPos [3677.7, 5991.9487, 9.2450218];
 };
 
 _vehicle_599 = objNull;
@@ -996,3 +960,47 @@ if (true) then
   _this setDir 48.421413;
   _this setPos [3715.4653, 6009.4814, 6.1035156e-005];
 };
+
+_vehicle_2860 = objNull;
+if (true) then
+{
+  _this = createVehicle ["HeliHEmpty", [3702.4014, 5962.0176], [], 0, "CAN_COLLIDE"];
+  _vehicle_2860 = _this;
+  _this setPos [3702.4014, 5962.0176];
+};
+
+_vehicle_277 = objNull;
+if (true) then
+{
+  _this = createVehicle ["HeliHCivil", [3701.4014, 5962.0176], [], 0, "CAN_COLLIDE"];
+  _vehicle_277 = _this;
+  _this setPos [3701.4014, 5962.0176];
+};
+
+_vehicle_278 = objNull;
+if (true) then
+{
+  _this = createVehicle ["HeliHEmpty", [3696.988, 5996.7617, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
+  _vehicle_278 = _this;
+  _this setPos [3696.988, 5996.7617, 3.0517578e-005];
+};
+
+_unit_400 = objNull;
+if (true) then
+{
+  _this = createAgent ["Graves_Light_DZ", [3718.1025, 5970.4619,0.0014094266], [], 0, "CAN_COLLIDE"];
+  _unit_400 = _this;
+  _this setDir -91.393532;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+  _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;};
+
+_unit_401 = objNull;
+if (true) then
+{
+  _this = createAgent ["BAF_Soldier_SniperN_W", [3689.5857, 5959.6943,0.0014094266], [], 0, "CAN_COLLIDE"];
+  _unit_401 = _this;
+  _this setDir 67.914154;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+  _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;};

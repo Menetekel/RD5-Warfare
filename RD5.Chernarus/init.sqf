@@ -22,9 +22,9 @@ enableSentences false;
 // DayZ Epoch config
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
-MaxHeliCrashes= 5; // Default = 5
-MaxVehicleLimit = 0; // Default = 50
-MaxDynamicDebris = 500; // Default = 100
+MaxHeliCrashes= 3; // Default = 5
+MaxVehicleLimit = 50; // Default = 50
+MaxDynamicDebris = 250; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 50; // Default = 30
 dayz_maxGlobalZombiesInit = 20; // Default = 15
@@ -38,7 +38,7 @@ dayz_sellDistance_air = 40;
 
 dayz_maxAnimals = 1; // Default: 8
 dayz_tameDogs = false;
-DynamicVehicleDamageLow = 0; // Default: 0
+DynamicVehicleDamageLow = 15; // Default: 0
 DynamicVehicleDamageHigh = 100; // Default: 100
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
@@ -47,7 +47,7 @@ DZE_TRADER_SPAWNMODE = true; // true = vehicle will para spawn, false = normal s
 
 //spawnmode
 DefaultMagazines = ["ItemBandage","ItemPainkiller"]; 
-DefaultWeapons = ["ItemFlashlight","ItemHatchet_DZE"]; 
+DefaultWeapons = ["ItemFlashlight"]; 
 DefaultBackpack = ""; 
 DefaultBackpackWeapon = "";
 //spawnmode
