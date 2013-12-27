@@ -988,7 +988,7 @@ if (true) then
 _unit_400 = objNull;
 if (true) then
 {
-  _this = createAgent ["Graves_Light_DZ", [3718.1025, 5970.4619,0.0014094266], [], 0, "CAN_COLLIDE"];
+  _this = createAgent ["Pierce", [3718.1025, 5970.4619,0.0014094266], [], 0, "CAN_COLLIDE"];
   _unit_400 = _this;
   _this setDir -91.393532;
   _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";

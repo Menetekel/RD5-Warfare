@@ -8,13 +8,13 @@ mission_spawn_crash = {
 	_crates = [];
 	_vehicle = 0;
 	_vehicle_spawn = false;
-    _paradrop = false;
+    _paradrop = true;
 
     
 	_c130wreck = createVehicle ["C130J_wreck_EP1",_position,[], 0, "NONE"];
 	
 	//  Spawn Supplies -- Crates
-	for "_i" from 0 to (mission_num_of_crates + 2) do
+	for "_i" from 0 to (mission_num_of_crates + 0) do
 	{
 		_crate_position = [_position,0,30,3,0,2000,0] call BIS_fnc_findSafePos;
 		if ((count _crate_position) == 2) then {
@@ -87,7 +87,7 @@ mission_spawn_crash = {
 	_timeout = time + mission_despawn_timer_min;
     _spawn_ammo = true;
 	_isNear = false;
-	_heli_reinforcements = false;
+	_heli_reinforcements = true;
 	waitUntil{
 		sleep 15;
 		if ((_spawn_ammo) || (_heli_reinforcements) || (_paradrop)) then {
@@ -147,22 +147,26 @@ mission_spawn_crash = {
 	
 	// Kill All AI + Triggers
 	{
-		_x setDamage 1;
+	//	_x setDamage 1;
+	deletevehicle _x;
 	} forEach units _group_1;
 	deletevehicle (_group_1_info select 0);
 	
 	{
-		_x setDamage 1;
+	//	_x setDamage 1;
+	deletevehicle _x;
 	} forEach units _group_2;
 	deletevehicle (_group_2_info select 0);
 	
 	{
-		_x setDamage 1;
+	//	_x setDamage 1;
+	deletevehicle _x;
 	} forEach units _group_3;
 	deletevehicle (_group_3_info select 0);
 	
 	{
-		_x setDamage 1;
+	//	_x setDamage 1;
+	deletevehicle _x;
 	} forEach units _group_4;
 	deletevehicle (_group_4_info select 0);
 };

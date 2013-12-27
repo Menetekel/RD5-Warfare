@@ -24,14 +24,6 @@ if (true) then
   _this setPos [11451.506, 11348.639, 3.0517578e-005];
 };
 
-_vehicle_226 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_R2_Stone", [11462.736, 11374.764, -6.1035156e-005], [], 0, "CAN_COLLIDE"];
-  _vehicle_226 = _this;
-  _this setPos [11462.736, 11374.764, -6.1035156e-005];
-};
-
 _vehicle_2211 = objNull;
 if (true) then
 {

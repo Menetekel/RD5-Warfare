@@ -100,7 +100,8 @@ if (!isDedicated) then {
 	//player_chopWood =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_chopWood.sqf";
 	player_harvestPlant =		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_harvestPlant.sqf";
 	player_goFishing =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_goFishing.sqf";
-	player_build =				compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
+//	player_build =				compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
+	player_build =				compile preprocessFileLineNumbers "germandayz\client\player_build.sqf";
 	player_wearClothes =		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_wearClothes.sqf";
 	//player_dropWeapon =		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_dropWeapon.sqf";
 	//playerpip_setTrap =		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_setTrap.sqf";
@@ -432,6 +433,15 @@ if (!isDedicated) then {
 		};
 		endLoadingScreen;
 	};
+
+	dayz_meleeMagazineCheck = {
+                private["_meleeNum","_magType"];
+                _magType =         ([] + getArray (configFile >> "CfgWeapons" >> _wpnType >> "magazines")) select 0;
+                _meleeNum = ({_x == _magType} count magazines player);
+                if (_meleeNum < 1) then {
+                        player addMagazine _magType;
+                };
+        };
 
 	dayz_originalPlayer = player;
 	

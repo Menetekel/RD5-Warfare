@@ -1,5 +1,4 @@
 AllowedVehiclesList = [
-["AN2_DZ",3],
 ["ATV_CZ_EP1",3],
 ["ATV_US_EP1",3],
 ["C130J_US_EP1",3],
@@ -80,8 +79,6 @@ AllowedVehiclesList = [
 ["UAZ_Unarmed_TK_CIV_EP1",3],
 ["UAZ_Unarmed_TK_EP1",3],
 ["UAZ_Unarmed_UN_EP1",3],
-["UH1H_DZE",2],
-["UH1Y_DZE",2],
 ["UralRefuel_TK_EP1_DZ",1],
 ["Ural_CDF",3],
 ["Ural_TK_CIV_EP1",3],

@@ -63,7 +63,7 @@ DZAI_weaponNoise = 0.00;
 DZAI_passiveAggro = false;
 
 //Amount of time in seconds between AI ammo refresh and zombie check. Decreasing this value may impact server performance. (Default: 15)											
-DZAI_refreshRate = 25;	
+DZAI_refreshRate = 30;	
 
 //Maximum distance for AI group leader to detect zombies. Increasing range beyond default may impact server performance. (Default: 200)							
 DZAI_zDetectRange = 200;									
@@ -113,7 +113,7 @@ DZAI_dynDespawnWait = 120;
 --------------------------------------------------------------------------------------------------------------------*/		
 
 //Maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
-DZAI_maxHeliPatrols = 1;
+DZAI_maxHeliPatrols = 3;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinA = 600;
@@ -121,7 +121,7 @@ DZAI_respawnTMaxA = 900;
 
 //Classnames of air vehicle types to use. Valid vehicle types: Helicopters and Planes (Default: "UH1H_DZ").
 //Air vehicles that are normally unarmed may have weapons added by DZAI (see "DZAI_airWeapons" setting below).								
-DZAI_heliTypes = ["UH1Y_DZE","BAF_Merlin_HC3_D","CH_47F_EP1_DZE","MH60S"];	
+DZAI_heliTypes = ["pook_H13_civ","pook_H13_gunship_PMC","CSJ_GyroP","CSJ_GyroC","CSJ_GyroCover"];	
 
 //Specify vehicle weapon for air vehicles that are unarmed by default. DZAI will arm these air vehicles with the specified weapons upon spawning each vehicle.
 //NOTE: These classnames are not verified by DZAI - it is the user's responsibility to make sure they are valid and unbanned.
@@ -129,14 +129,18 @@ DZAI_heliTypes = ["UH1Y_DZE","BAF_Merlin_HC3_D","CH_47F_EP1_DZE","MH60S"];
 DZAI_airWeapons = [
 	[
 		//Air vehicle classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
-		"Helicopter1_ExampleClassname",
-		"Helicopter2_ExampleClassname"
+		"pook_H13_civ",
+		"CSJ_GyroP",
+		"CSJ_GyroC",
+		"CSJ_GyroCover"
 	]
 	,
 	[
 		//Corresponding weapon classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
-		"Helicopter1_ExampleWeapon",
-		"Helicopter2_ExampleWeapon"
+		"2A42",
+		"2A42",
+		"2A42",
+		"AT5LauncherSingle"
 	]
 ];
 

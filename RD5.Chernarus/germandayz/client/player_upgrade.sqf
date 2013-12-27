@@ -44,8 +44,8 @@ if(_IsNearPlot == 0) then {
 	if(dayz_playerUID == _ownerID) then {
 		_canBuildOnPlot = true;		
 	} else {
-		_friendlies		= player getVariable ["friendlyTo",[]];
-//		_friendlies		= player getVariable ["friendlies",[]];
+//		_friendlies		= player getVariable ["friendlyTo",[]];
+		_friendlies		= player getVariable ["friendlies",[]];
 		// check if friendly to owner
 		if(_ownerID in _friendlies) then {
 			_canBuildOnPlot = true;
@@ -152,8 +152,8 @@ if ((count _upgrade) > 0) then {
 			_object setPosATL _location;
 
 			if (_classname in ["Plastic_Pole_EP1_DZ","Land_HBarrier5_DZ","Land_HBarrier3_DZ","Land_HBarrier1_DZ","MetalFloor_DZ","CinderWall_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorLocked_DZ"]) then {
-			_object addEventHandler ["HandleDamage", {false}];
-			_object enableSimulation false; //add god
+				_object addEventHandler ["HandleDamage", {false}];
+				_object enableSimulation false; //add god
 			};
 			if (_lockable == 3) then {
 
@@ -169,7 +169,7 @@ if ((count _upgrade) > 0) then {
 				cutText [format[(localize "str_epoch_player_159"),_text], "PLAIN DOWN", 5];
 			};
 
-			PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,_objectID,_objectUID,(getPlayerUID player)];
+			PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,player];
 			publicVariableServer "PVDZE_obj_Swap";
 
 			player reveal _object;

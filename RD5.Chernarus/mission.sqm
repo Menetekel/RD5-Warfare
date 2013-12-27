@@ -1238,31 +1238,31 @@ class Mission
 		};
 		class Item10
 		{
-			position[]={1146.8905,9.5063992,2676.7671};
-			name="boatsnwholesale_1";
+			position[]={4361.4937,3,2259.9526};
+			name="wholesaleSouth";
 			text="Wholesaler";
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
 		class Item11
 		{
-			position[]={13247.175,7.9455967,6076.4395};
-			name="boatsnwholesale_1_1";
-			text="Wholesaler";
+			position[]={13532.614,3.0083523,6355.9497};
+			name="boatTraderEast";
+			text="East Coast Wholesaler";
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
 		class Item12
 		{
-			position[]={5068.6636,338.99176,9723.4248};
-			name="Airplane Dealer NWA";
-			text="Airplane Dealer NWA";
+			position[]={12060.471,158.85699,12638.533};
+			name="AircraftNEA";
+			text="Aircraft Dealer NEA";
 			type="Airport";
 			colorName="ColorOrange";
 		};
 		class Item13
 		{
-			position[]={8385.834,1.6642252,2368.8264};
+			position[]={7989.3354,0.30462033,2900.9946};
 			name="Boat Dealer";
 			text="Boat Dealer";
 			type="Depot";
@@ -1278,8 +1278,8 @@ class Mission
 		};
 		class Item15
 		{
-			position[]={13093.446,0.42457402,8241.5625};
-			name="Boat Dealer_1";
+			position[]={13441.16,1.1406164,5429.3013};
+			name="Boat Dealer East";
 			text="Boat Dealer";
 			type="Depot";
 			colorName="ColorOrange";
@@ -1303,10 +1303,10 @@ class Mission
 	};
 	class Sensors
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
-			position[]={4053.8501,364.76645,11668.645};
+			position[]={4063.4226,365.00577,11664.19};
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -1321,7 +1321,7 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={11463.747,317.3078,11349.89};
+			position[]={11447.472,317.26886,11364.504};
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -1351,7 +1351,7 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={12944.227,210.19823,12766.889};
+			position[]={12947.661,12763.261,-1.2341257};
 			a=100;
 			b=100;
 			activationBy="WEST";
@@ -1379,6 +1379,23 @@ class Mission
 			expCond="(player distance gm) < 150;";
 			expActiv="canbuild = false; inSafeZone = true; inTraderCity = ""Military Trader"";";
 			expDesactiv="canbuild = true; inSafeZone = false; inTraderCity = ""Any"";";
+			class Effects
+			{
+			};
+		};
+		class Item5
+		{
+			position[]={1606.6443,289.70795,7803.5156};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zonebandit";
+			expCond="(player distance zonebandit) < 100;";
+			expActiv="canbuild = false; inTraderCity = ""Bandit Trader"";";
+			expDesactiv="canbuild = true; inTraderCity = ""Any"";";
 			class Effects
 			{
 			};
