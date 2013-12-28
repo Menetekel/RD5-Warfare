@@ -952,15 +952,6 @@ if (true) then
   _this setPos [3709.4607, 6016.0029, 3.0517578e-005];
 };
 
-_vehicle_5274 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_dragonTeeth", [3715.4653, 6009.4814, 6.1035156e-005], [], 0, "CAN_COLLIDE"];
-  _vehicle_5274 = _this;
-  _this setDir 48.421413;
-  _this setPos [3715.4653, 6009.4814, 6.1035156e-005];
-};
-
 _vehicle_2860 = objNull;
 if (true) then
 {
@@ -983,6 +974,31 @@ if (true) then
   _this = createVehicle ["HeliHEmpty", [3696.988, 5996.7617, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
   _vehicle_278 = _this;
   _this setPos [3696.988, 5996.7617, 3.0517578e-005];
+};
+_vehicle_1279 = objNull;
+if (true) then
+{
+  _this = createVehicle ["MAP_campfire", [3720.0969, 5962.8008, -6.1035156e-005], [], 0, "CAN_COLLIDE"];
+  _vehicle_1279 = _this;
+  _this setPos [3720.0969, 5962.8008, -6.1035156e-005];
+};
+
+_vehicle_1287 = objNull;
+if (true) then
+{
+  _this = createVehicle ["MAP_phone_box", [3712.7319, 5963.5708, -3.0517578e-005], [], 0, "CAN_COLLIDE"];
+  _vehicle_1287 = _this;
+  _this setDir 161.41338;
+  _this setPos [3712.7319, 5963.5708, -3.0517578e-005];
+};
+
+_vehicle_1293 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Info_Board_EP1", [3714.5234, 5963.6138, 6.1035156e-005], [], 0, "CAN_COLLIDE"];
+  _vehicle_1293 = _this;
+  _this setDir 162.60104;
+  _this setPos [3714.5234, 5963.6138, 6.1035156e-005];
 };
 
 _unit_400 = objNull;

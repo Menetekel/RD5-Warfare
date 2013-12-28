@@ -29,10 +29,10 @@ DZAI_verifyTables = true;
 DZAI_objPatch = false;
 
 //Minimum seconds to pass until a dead AI body can be cleaned up by DZAI's task scheduler. Affects both static and dynamic AI units (Default: 300).										
-DZAI_cleanupDelay = 300;									
+DZAI_cleanupDelay = 900;									
 
 //Enable or disable DZAI reading from dzai_settings_override.sqf file (Default: true)
-DZAI_readOverrideFile = true;
+DZAI_readOverrideFile = false;
 
 /*
 
@@ -60,7 +60,7 @@ DZAI_modName = "epoch";
 DZAI_weaponNoise = 0.00;
 
 //Passive zombie-to-AI aggro. If enabled, zombies will tend to be attracted to a nearby AI group leader. Less impactful on server performance than setting a value to DZAI_weaponNoise (Default: false).
-DZAI_passiveAggro = false;
+DZAI_passiveAggro = true;
 
 //Amount of time in seconds between AI ammo refresh and zombie check. Decreasing this value may impact server performance. (Default: 15)											
 DZAI_refreshRate = 30;	
@@ -116,12 +116,12 @@ DZAI_dynDespawnWait = 120;
 DZAI_maxHeliPatrols = 3;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
-DZAI_respawnTMinA = 600;
-DZAI_respawnTMaxA = 900;
+DZAI_respawnTMinA = 900;
+DZAI_respawnTMaxA = 1800;
 
 //Classnames of air vehicle types to use. Valid vehicle types: Helicopters and Planes (Default: "UH1H_DZ").
 //Air vehicles that are normally unarmed may have weapons added by DZAI (see "DZAI_airWeapons" setting below).								
-DZAI_heliTypes = ["pook_H13_civ","pook_H13_gunship_PMC","CSJ_GyroP","CSJ_GyroC","CSJ_GyroCover"];	
+DZAI_heliTypes = ["pook_H13_civ","pook_H13_gunship_PMC","CSJ_GyroC","CSJ_GyroCover","An2_1_TK_CIV_EP1"];	
 
 //Specify vehicle weapon for air vehicles that are unarmed by default. DZAI will arm these air vehicles with the specified weapons upon spawning each vehicle.
 //NOTE: These classnames are not verified by DZAI - it is the user's responsibility to make sure they are valid and unbanned.
@@ -130,17 +130,17 @@ DZAI_airWeapons = [
 	[
 		//Air vehicle classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
 		"pook_H13_civ",
-		"CSJ_GyroP",
 		"CSJ_GyroC",
-		"CSJ_GyroCover"
+		"CSJ_GyroCover",
+		"An2_1_TK_CIV_EP1"
 	]
 	,
 	[
 		//Corresponding weapon classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
+		"DSHKM",
 		"2A42",
-		"2A42",
-		"2A42",
-		"AT5LauncherSingle"
+		"AT2Launcher",
+		"GAU12"
 	]
 ];
 
@@ -157,7 +157,7 @@ DZAI_maxLandPatrols = 0;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinL = 600;
-DZAI_respawnTMaxL = 900;
+DZAI_respawnTMaxL = 1200;
 
 //Classnames of land vehicle types to use. (Default: "UAZ_Unarmed_TK_EP1")
 DZAI_vehTypes = ["UAZ_Unarmed_TK_EP1","BTR40_TK_INS_EP1","Pickup_PK_GUE","MAZ_543_SCUD_TK_EP1","HMMWV_M1035_DES_EP1"];
@@ -198,7 +198,7 @@ DZAI_banAIWeapons = ["KSVK_DZE","M24_desert_EP1","DMR","DMR_DZ"];
 DZAI_launcherTypes = ["RPG7V"];	
 
 //List of AI weapongrades that are permitted to use launcher-type weapons. Individual custom weapongrade levels may be added to allow launcher use (Default: [1,2,3])
-DZAI_launcherLevels = [2,3];								
+DZAI_launcherLevels = [1,2,3];								
 
 
 /*	AI loot quantity settings
@@ -243,25 +243,25 @@ DZAI_chanceMiscItemL = 0.03;
 --------------------------------------------------------------------------------------------------------------------*/
 
 //equipType = -1 - most AI will have pistols, sometimes basic rifles.
-DZAI_gradeChancesNewbie = [0.90,0.10,0.00,0.00,0.00];	
+DZAI_gradeChancesNewbie = [0.00,0.30,0.50,0.20,0.00];	
 
 //equipType = 0 - most AI will have basic pistols or rifles, and occasionally common military weapons.
-DZAI_gradeChances0 = [0.00,0.90,0.10,0.00,0.00];	
+DZAI_gradeChances0 = [0.00,0.20,0.40,0.30,0.10];	
 
 //equipType = 1 - most AI will have common rifles, many will have common military weapons. Very rarely, AI will spawn with high-grade military or helicrash weapons.				
-DZAI_gradeChances1 = [0.00,0.60,0.35,0.04,0.01];	
+DZAI_gradeChances1 = [0.00,0.30,0.55,0.10,0.05];	
 
 //equipType = 2 - most AI carry military weapons, and occasionally high-grade military weapons.				
 DZAI_gradeChances2 = [0.00,0.20,0.60,0.15,0.05];
 
 //equipType = 3 - All AI will carry at least a military-grade weapon. Many will be carrying high-grade military weapons.					
-DZAI_gradeChances3 = [0.00,0.00,0.50,0.38,0.12];	
+DZAI_gradeChances3 = [0.00,0.00,0.50,0.20,0.30];	
 
 //Weapongrade chances for AI spawned from dynamic triggers.				
 DZAI_gradeChancesDyn = [0.00,0.00,0.88,0.09,0.03];				
 
 //Weapongrade chances for dead AI ejected from destroyed helicopter patrols.					
-DZAI_gradeChancesHeli = [0.00,0.00,0.40,0.43,0.17];	
+DZAI_gradeChancesHeli = [0.99,0.01,0.00,0.00,0.00];	
 
 /*
 	AI skill settings
@@ -275,58 +275,58 @@ DZAI_gradeChancesHeli = [0.00,0.00,0.40,0.43,0.17];
 
 //AI skill settings level 0 (Skill, Minimum skill, Maximum skill).
 DZAI_skill0 = [	
-	["aimingAccuracy",0.10,0.15],
-	["aimingShake",0.50,0.60],
-	["aimingSpeed",0.50,0.60],
+	["aimingAccuracy",0.50,0.60],
+	["aimingShake",0.50,0.70],
+	["aimingSpeed",0.80,0.99],
 	["endurance",0.40,0.60],
-	["spotDistance",0.30,0.45],
-	["spotTime",0.50,0.65],
-	["courage",0.40,0.60],
-	["reloadSpeed",0.40,0.60],
-	["commanding",0.40,0.60],
-	["general",0.40,0.60]
+	["spotDistance",0.70,0.90],
+	["spotTime",0.95,0.99],
+	["courage",0.60,0.80],
+	["reloadSpeed",0.60,1.00],
+	["commanding",0.40,0.80],
+	["general",0.80,0.90]
 ];
 
 //AI skill settings level 1 (Skill, Minimum skill, Maximum skill).
 DZAI_skill1 = [	
-	["aimingAccuracy",0.125,0.15],
-	["aimingShake",0.60,0.70],
-	["aimingSpeed",0.60,0.70],
-	["endurance",0.55,0.75],
-	["spotDistance",0.45,0.60],
-	["spotTime",0.65,0.80],
-	["courage",0.55,0.75],
-	["reloadSpeed",0.55,0.75],
-	["commanding",0.55,0.75],
-	["general",0.55,0.75]
+	["aimingAccuracy",0.50,0.70],
+	["aimingShake",0.60,0.80],
+	["aimingSpeed",0.60,0.80],
+	["endurance",0.70,0.90],
+	["spotDistance",0.70,0.90],
+	["spotTime",0.95,0.99],
+	["courage",0.70,0.80],
+	["reloadSpeed",0.70,0.99],
+	["commanding",0.70,0.99],
+	["general",0.80,0.99]
 ];
 
 //AI skill settings level 2 (Skill, Minimum skill, Maximum skill).
 DZAI_skill2 = [	
-	["aimingAccuracy",0.15,0.20],
-	["aimingShake",0.75,0.85],
-	["aimingSpeed",0.75,0.85],
-	["endurance",0.70,0.90],
-	["spotDistance",0.60,0.75],
-	["spotTime",0.80,0.95],
+	["aimingAccuracy",0.30,0.70],
+	["aimingShake",0.75,0.90],
+	["aimingSpeed",0.75,0.90],
+	["endurance",0.70,0.95],
+	["spotDistance",0.60,0.70],
+	["spotTime",0.95,0.95],
 	["courage",0.70,0.90],
 	["reloadSpeed",0.70,0.90],
-	["commanding",0.70,0.90],
-	["general",0.70,0.90]
+	["commanding",0.90,1.00],
+	["general",0.90,1.00]
 ];
 
 //AI skill settings level 3 (Skill, Minimum skill, Maximum skill).
 DZAI_skill3 = [	
-	["aimingAccuracy",0.20,0.25],
-	["aimingShake",0.85,0.95],
-	["aimingSpeed",0.85,0.95],
-	["endurance",0.80,1.00],
-	["spotDistance",0.70,0.85],
-	["spotTime",0.90,1.00],
-	["courage",0.80,1.00],
-	["reloadSpeed",0.80,1.00],
-	["commanding",0.80,1.00],
-	["general",0.80,1.00]
+	["aimingAccuracy",0.95,1.00],
+	["aimingShake",0.95,1.00],
+	["aimingSpeed",0.95,1.00],
+	["endurance",0.95,1.00],
+	["spotDistance",0.95,1.00],
+	["spotTime",0.95,1.00],
+	["courage",0.95,1.00],
+	["reloadSpeed",0.95,1.00],
+	["commanding",0.95,1.00],
+	["general",0.95,1.00]
 ];
 
 //Note: Additional AI skill settings can be defined (DZAI_skill4 - DZAI_skill9) using the same format above.
@@ -354,10 +354,10 @@ DZAI_skill9 = nil;
 
 //AI skill settings - AI helicopter crew (Skill, Minimum skill, Maximum skill).
 DZAI_heliCrewSkills = [	
-	["aimingAccuracy",0.50,0.50],
-	["aimingShake",0.85,0.95],
-	["aimingSpeed",0.85,0.95],
-	["endurance",0.60,0.80],
+	["aimingAccuracy",0.50,1.00],
+	["aimingShake",0.30,0.50],
+	["aimingSpeed",0.85,1.00],
+	["endurance",0.30,0.95],
 	["spotDistance",0.90,1.00],
 	["spotTime",0.90,1.00],
 	["courage",0.90,1.00],

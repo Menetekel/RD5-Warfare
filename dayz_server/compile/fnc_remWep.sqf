@@ -13,5 +13,16 @@
 	if (_object isKindOf "BRDM2_TK_EP1") then {
 			_object removeWeapon "KPVT";
 			_object removeWeapon "PKT";
+			_object addWeapon "TruckHorn2";
+			_object addWeapon "SmokeLauncher";
+	};
+	if (_object isKindOf "M113Ambul_TK_EP1_DZ") then {
+			_object addWeapon "SportCarHorn";
+			_object addWeapon "BikeHorn";
+	};
+	if (_object isKindOf "HMMWV_Avenger_DES_EP1") then {
+			_object removeWeapon "StingerLaucher";
+			_object removeWeapon "M3P";
+			_object addWeapon "BikeHorn";
 	};
 	//Ende des Entfernens

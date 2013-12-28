@@ -17,10 +17,11 @@ enableSentences false;
 
 // DayZ Epoch config
 spawnShoremode = 1; // Default = 1 (on shore)
+freshSpawn = 2; //0 - Normal Spawn / 1 - fresh spawn as zombie / 2 - fresh spawn as player
 spawnArea= 1500; // Default = 1500
-MaxHeliCrashes= 3; // Default = 5
+MaxHeliCrashes= 2; // Default = 5
 MaxVehicleLimit = 50; // Default = 50
-MaxDynamicDebris = 250; // Default = 100
+MaxDynamicDebris = 100; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 50; // Default = 30
 dayz_maxGlobalZombiesInit = 20; // Default = 15
@@ -39,11 +40,12 @@ DynamicVehicleDamageHigh = 100; // Default: 100
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
 dayz_fullMoonNights = true;
-DZE_TRADER_SPAWNMODE = true; // true = vehicle will para spawn, false = normal spawn mode
+DZE_TRADER_SPAWNMODE = false; // true = vehicle will para spawn, false = normal spawn mode
+DZE_BuildingLimit = 200; //Max buildings within 30m
 
 //spawnmode
 DefaultMagazines = ["ItemBandage","ItemPainkiller"]; 
-DefaultWeapons = ["ItemFlashlight"]; 
+DefaultWeapons = ["ItemFlashlight","ItemMap"]; 
 DefaultBackpack = ""; 
 DefaultBackpackWeapon = "";
 //spawnmode
@@ -114,5 +116,3 @@ if (!isNil "dayZ_serverName") then {
 		((uiNamespace getVariable "wm_disp") displayCtrl 1) ctrlSetText dayZ_serverName;
 	};
 };
-//Weihnachtsspecial/Neujahr
-		[] execVM "germandayz\weihnachten\config.sqf"; 

@@ -533,13 +533,19 @@ if (_hasrequireditem) then {
 
 				} else {
 					_tmpbuilt setVariable ["CharacterID",dayz_playerUID,true];
-					
 					// fire?
 					if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
 						_tmpbuilt spawn player_fireMonitor;
 					} else {
 						PVDZE_obj_Publish = [dayz_playerUID,_tmpbuilt,[_dir,_location],_classname];
 						publicVariableServer "PVDZE_obj_Publish";
+						//display plot code for friendlytagging
+						if (_classname in ["Plastic_Pole_EP1_DZ"]) then {
+							_poleID = _object getVariable ["ObjectID","0"];
+							_poleUID = _tmpbuilt getVariable ["ObjectUID","0"];
+							_pUID = _tmpbuilt getVariable["CharacterID","0"];
+							cutText [format["The PlotPole Code is: ID %1 I UID %2 I pUID %3 - THIS FEATURE IS CURRENTLY DISABLED - Use the Action Menu on PlotPole AFTER a server restart to get the code.",_PoleID,_PoleUID,_pUID], "PLAIN DOWN", 5];
+						};
 					};
 				};
 

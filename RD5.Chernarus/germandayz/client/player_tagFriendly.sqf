@@ -24,6 +24,6 @@ if (!(_callerID in _rfriendlies)) then {
 	// target
 	PVDZE_plr_FriendRQ = _target;
 	publicVariable "PVDZE_plr_FriendRQ";
-//	} else {
-//	titleText ["You have already tagged that player as friend. Removed the oldest of your 5 tagged persons.", "PLAIN DOWN"];
+	} else {
+	titleText ["You have already tagged that player as friend. Removed the oldest of your 5 tagged persons.", "PLAIN DOWN"];
 };

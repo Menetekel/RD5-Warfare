@@ -464,7 +464,7 @@ if(isNil "DZE_FriendlySaving") then {
 	DZE_FriendlySaving = true;
 };
 
-DZE_REPLACE_WEAPONS = [["Crossbow","ItemMatchbox","ItemHatchet"],["Crossbow_DZ","ItemMatchbox_DZE","ItemHatchet_DZE"]];
+DZE_REPLACE_WEAPONS = [["Crossbow","ItemMatchbox","ItemHatchet","DMR","DMR_DZ"],["Crossbow_DZ","ItemMatchbox_DZE","ItemHatchet_DZE","LeeEnfield","ItemSapphire"]];
 
 /*
 if(isNil "dayz_canBuildInCity") then {

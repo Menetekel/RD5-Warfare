@@ -193,12 +193,15 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		 if (s_player_maintain_area < 0) then {
 		  	s_player_maintain_area = player addAction ["<t color=""#ffffff"">Maintain Area</t>", "\z\addons\dayz_code\actions\maintain_area.sqf", "maintain", 5, false];
 		 	s_player_maintain_area_preview = player addAction ["<t color=""#ccffffff"">Maintain Area Preview</t>", "\z\addons\dayz_code\actions\maintain_area.sqf", "preview", 5, false];
-		 };
+		 	//s_player_show_pole_id = player addAction ["<t color=""#ccffffff"">Show Plotpole ID</t>", "germandayz\client\show_pole_id.sqf",_cursorTarget, 1, true, true, "", ""];
+			};
 	 } else {
     		player removeAction s_player_maintain_area;
     		s_player_maintain_area = -1;
     		player removeAction s_player_maintain_area_preview;
     		s_player_maintain_area_preview = -1;
+			//player removeAction s_player_show_pole_id;
+			//s_player_show_pole_id = -1;
 	 };
 
 	// CURSOR TARGET ALIVE
