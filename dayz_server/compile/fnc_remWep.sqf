@@ -25,4 +25,16 @@
 			_object removeWeapon "M3P";
 			_object addWeapon "BikeHorn";
 	};
+	if (_object isKindOf "Ural_ZUE23_Gue") then {
+			_object removeWeapon "2A14";
+	};
+	if (_object isKindOf "MQ9PredatorB") then {
+			_object removeWeapon "HellfireLauncher";
+			_object addWeapon "M240_veh";
+			_object addMagazine "100Rnd_762x51_M240";
+	};
+	if (_object isKindOf "Pchela1T") then {
+			_object addWeapon "BikeHorn";
+			_object addWeapon "TruckHorn2";
+	};
 	//Ende des Entfernens

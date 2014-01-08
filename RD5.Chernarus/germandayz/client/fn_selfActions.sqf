@@ -191,9 +191,11 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 
 	 if (_canDo && (speed player <= 1) && (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ")) then {
 		 if (s_player_maintain_area < 0) then {
-		  	s_player_maintain_area = player addAction ["<t color=""#ffffff"">Maintain Area</t>", "\z\addons\dayz_code\actions\maintain_area.sqf", "maintain", 5, false];
-		 	s_player_maintain_area_preview = player addAction ["<t color=""#ccffffff"">Maintain Area Preview</t>", "\z\addons\dayz_code\actions\maintain_area.sqf", "preview", 5, false];
+//		  	s_player_maintain_area = player addAction ["<t color=""#ffffff"">Maintain Area</t>", "\z\addons\dayz_code\actions\maintain_area.sqf", "maintain", 5, false];
+	//	 	s_player_maintain_area_preview = player addAction ["<t color=""#ccffffff"">Maintain Area Preview</t>", "\z\addons\dayz_code\actions\maintain_area.sqf", "preview", 5, false];
 		 	//s_player_show_pole_id = player addAction ["<t color=""#ccffffff"">Show Plotpole ID</t>", "germandayz\client\show_pole_id.sqf",_cursorTarget, 1, true, true, "", ""];
+		  	s_player_maintain_area = player addAction ["<t color=""#9800ff"">MAINTENANCE NOT NEEDED</t>", "germandayz\client\maintain_area.sqf", "maintain", 5, false];
+		 	s_player_maintain_area_preview = player addAction ["<t color=""#ffffff"">Show Amount of Buildings</t>", "germandayz\client\maintain_area.sqf", "preview", 5, false];
 			};
 	 } else {
     		player removeAction s_player_maintain_area;
@@ -203,7 +205,28 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 			//player removeAction s_player_show_pole_id;
 			//s_player_show_pole_id = -1;
 	 };
-
+//show plotpole code as owner
+	_poleOwner = _cursorTarget getVariable["CharacterID","0"];
+	_playerID = dayz_playerUID;
+	 if (_canDo && (speed player <= 1) && (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ") && (_playerID == _poleOwner)) then {
+		 if (s_player_show_pole_id < 0) then {
+		 	s_player_show_pole_id = player addAction ["<t color=""#ccffffff"">Show Plotpole Code</t>", "germandayz\client\show_pole_id.sqf",_cursorTarget, 1, true, true, "", ""];
+			};
+	 } else {
+			player removeAction s_player_show_pole_id;
+			s_player_show_pole_id = -1;
+	 };
+//show enter code as non-owner
+	_poleOwner = _cursorTarget getVariable["CharacterID","0"];
+	_playerID = dayz_playerUID;
+	 if (_canDo && (speed player <= 1) && (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ") && (!(_playerID == _poleOwner))) then {
+		 if (gdz_plotpolesheet < 0) then {
+		gdz_plotpolesheet = player addAction ["<t color='#ffff00'>Enter Code...</t>", "germandayz\client\enter_code.sqf",[],7,false,true, "", ""];			
+			};
+	 } else {
+			player removeAction gdz_plotpolesheet;
+			gdz_plotpolesheet = -1;
+	 };	 
 	// CURSOR TARGET ALIVE
 	if(_isAlive) then {
 		
@@ -591,8 +614,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 
 		if (s_player_downgrade_build < 0) then {
 			s_player_lastTarget set [1,_cursorTarget];
-			s_player_downgrade_build = player addAction [format["Remove Lock from %1",_text], "germandayz\client\player_buildingDowngrade.sqf",_cursorTarget, -2, false, true, "",""];
-//			s_player_downgrade_build = player addAction [format["Remove Lock from %1",_text], "\z\addons\dayz_code\actions\player_buildingDowngrade.sqf",_cursorTarget, -2, false, true, "",""];
+//			s_player_downgrade_build = player addAction [format["Remove Lock from %1",_text], "germandayz\client\player_buildingDowngrade.sqf",_cursorTarget, -2, false, true, "",""];
+			s_player_downgrade_build = player addAction [format["Remove Lock from %1",_text], "\z\addons\dayz_code\actions\player_buildingDowngrade.sqf",_cursorTarget, -2, false, true, "",""];
 		};
 	} else {
 		player removeAction s_player_downgrade_build;

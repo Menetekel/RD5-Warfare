@@ -57,18 +57,27 @@ if ((count _locationArray) == 0) then {
 		};
 		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from building positions (spawnBandits).";};
 	} else {
-		if (typeName (_positionArray select 0) == "STRING") then {
-			{
+		{
+			if ((((getMarkerPos _x) select 0) != 0)&&(((getMarkerPos _x) select 1) != 0)) then {
 				_spawnPositions set [(count _spawnPositions),(getMarkerPos _x)];
-			} forEach _positionArray;
-			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from marker positions (spawnBandits).";};
-		};
+				deleteMarker _x;
+			};
+		} forEach _positionArray;
+		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from marker positions (spawnBandits).";};
 	};
 } else {
 	if (DZAI_debugMarkers > 0) then {
 		_tMarker = str (_trigger);
-		_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
-		_tMarker setMarkerColor "ColorRed";
+		if ((getMarkerColor _tMarker) == "") then {
+			_tMarker = createMarker [_tMarker, (getPosATL _trigger)];
+			_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
+			_tMarker setMarkerType "Defend";
+			_tMarker setMarkerColor "ColorRed";
+			_tMarker setMarkerBrush "Solid";
+		} else {
+			_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
+			_tMarker setMarkerColor "ColorRed";
+		};
 		if (DZAI_debugMarkers > 1) then {_nul = [_trigger] spawn DZAI_updateSpawnMarker;};
 	};
 	//If spawn points are already defined (subsequent trigger activations)
@@ -101,7 +110,7 @@ for "_j" from 1 to _numGroups do {
 		_unitGroup allowFleeing 0;
 		
 		//Update AI count
-		DZAI_numAIUnits = DZAI_numAIUnits + _totalAI;
+		//DZAI_numAIUnits = DZAI_numAIUnits + _totalAI;
 		_totalSpawned = _totalSpawned + _totalAI;
 		if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 has group size %2.",_unitGroup,_totalAI];};
 		
@@ -127,6 +136,7 @@ if (!(_trigger getVariable ["initialized",false])) then {
 } else {
 	_trigger setVariable ["GroupArray",_grpArray];
 	_trigger setVariable ["isCleaning",false];
+	DZAI_actTrigs = DZAI_actTrigs + 1;
 };
 
 true

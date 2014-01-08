@@ -51,7 +51,7 @@ if (!isDedicated) then {
 	// stream_locationCheck = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\stream_locationCheck.sqf";
 	player_music = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_music.sqf";			//Used to generate ambient music
 	player_login = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_login.sqf";			//Used to generate ambient music
-	player_death =					compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_death.sqf";
+	player_death =					compile preprocessFileLineNumbers "germandayz\client\player_death.sqf";
 	player_switchModel =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_switchModel.sqf";
 	player_checkStealth =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_checkStealth.sqf";
 	world_sunRise =					compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_sunRise.sqf";

@@ -11,7 +11,7 @@ mission_spawn_crash = {
     _paradrop = true;
 
     
-	_c130wreck = createVehicle ["C130J_wreck_EP1",_position,[], 0, "NONE"];
+	_c130wreck = createVehicle ["UralWreck",_position,[], 0, "NONE"];
 	
 	//  Spawn Supplies -- Crates
 	for "_i" from 0 to (mission_num_of_crates + 0) do
@@ -24,16 +24,16 @@ mission_spawn_crash = {
 	};
 
 	// SPAWN AI
-	// Inital Group 200 metre range, 1 sniper, 4 riflemen
-	_group_1_info = [(_mission_id + "-AIGroup1"), "AI", _position, 100, 6, 1] call mission_spawn_ai;
+	// Inital Group 100 metre range, 6 riflemen, weapongrade 1
+	_group_1_info = [(_mission_id + "-AIGroup1"), "AI", _position, 100, 6, 2] call mission_spawn_ai;
 	_group_1 = _group_1_info select 1;
 	
-	// Second Group 80 metre range, 1 sniper, 4 riflemen
-	_group_2_info = [(_mission_id + "-AIGroup2"), "AI", _position, 50, 4, 2] call mission_spawn_ai;
+	// Second Group 50 metre range, 1 sniper, 4 riflemen
+	_group_2_info = [(_mission_id + "-AIGroup2"), "AI", _position, 50, 4, 1] call mission_spawn_ai;
 	_group_2 = _group_2_info select 1;
 	
-	// Third Group 80 metre range, 1 sniper, 4 riflemen
-	_group_3_info = [(_mission_id + "-AIGroup3"), "AI_HELI", _position, 200, 6, 0] call mission_spawn_ai;
+	// Third Group 200 metre range, 1 sniper, 4 riflemen
+	_group_3_info = [(_mission_id + "-AIGroup3"), "AI_HELI", _position, 200, 6, 3] call mission_spawn_ai;
 	_group_3 = _group_3_info select 1;
 	
 	// Fourth Group
@@ -41,35 +41,36 @@ mission_spawn_crash = {
 	_group_4 = objNull;
 	
 	// Fifth Group
-	_group_5_info = objNull;
+	_group_5_info = [(_mission_id + "-AIGroup5"), "AI", _position, 500, 10, 3] call mission_spawn_ai;
+	_group_5 = _group_5_info select 1;
 
 	_chance = (random 10);
 	switch (true) do {
         
         case (_chance <= 2):
         {
-			_group_4_info = [(_mission_id + "-AIGroup4"), "AI_HELI", _position, 300, 6, 0] call mission_spawn_ai;
+			_group_4_info = [(_mission_id + "-AIGroup4"), "AI_HELI", _position, 400, 8, 3] call mission_spawn_ai;
 			_group_4 = _group_4_info select 1;
 			//[_group4] call mission_kill_vehicle_group;
         };
         
         case (_chance <= 4):
         {
-			_group_4_info = [(_mission_id + "-AIGroup4"), "AI_HELI", _position, 300, 3, 2] call mission_spawn_ai;
+			_group_4_info = [(_mission_id + "-AIGroup4"), "AI_HELI", _position, 400, 9, 3] call mission_spawn_ai;
 			_group_4 = _group_4_info select 1;
             //[_group4] call mission_kill_vehicle_group;
         };
         
         case (_chance <= 7):
         {
-			_group_4_info = [(_mission_id + "-AIGroup4"), "AI_LAND", _position, 300, 6, 1] call mission_spawn_ai;
+			_group_4_info = [(_mission_id + "-AIGroup4"), "AI_LAND", _position, 400, 10, 3] call mission_spawn_ai;
 			_group_4 = _group_4_info select 1;
             //[_group4] call mission_kill_vehicle_group;
         };
         
         default
         {
-			_group_4_info = [(_mission_id + "-AIGroup4"), "AI", _position, 300, 4, 1] call mission_spawn_ai;
+			_group_4_info = [(_mission_id + "-AIGroup4"), "AI", _position, 400, 4, 1] call mission_spawn_ai;
 			_group_4 = _group_4_info select 1;
         };
     };
@@ -77,7 +78,7 @@ mission_spawn_crash = {
 	
 	// Player Markers
 	_marker_name = (_mission_id + "_player_marker");
-	[_marker_name, _position, "ColorBlack", true] call mission_add_marker;
+	[_marker_name, _position, "ColorRed", true] call mission_add_marker;
 
 	customMissionWarning = ["CrashCJ", mission_warning_debug, _marker_name, _position, _vehicle_spawn, _vehicle];
 	publicVariable "customMissionWarning";
@@ -123,7 +124,7 @@ mission_spawn_crash = {
 	while {_isNear} do
 	{
 		
-		_isNear = [_position, 500] call mission_nearbyPlayers;
+		_isNear = [_position, 1500] call mission_nearbyPlayers;
 		if ((!_isNear) && (time > _timeout)) then {
 			_isNear = false;
 		};
@@ -147,26 +148,34 @@ mission_spawn_crash = {
 	
 	// Kill All AI + Triggers
 	{
-	//	_x setDamage 1;
+	//	deleteVehicle _x;
 	deletevehicle _x;
 	} forEach units _group_1;
 	deletevehicle (_group_1_info select 0);
 	
 	{
-	//	_x setDamage 1;
+	//	deleteVehicle _x;
 	deletevehicle _x;
 	} forEach units _group_2;
 	deletevehicle (_group_2_info select 0);
 	
 	{
-	//	_x setDamage 1;
+	//	deleteVehicle _x;
 	deletevehicle _x;
 	} forEach units _group_3;
 	deletevehicle (_group_3_info select 0);
 	
 	{
-	//	_x setDamage 1;
+	//	deleteVehicle _x;
 	deletevehicle _x;
 	} forEach units _group_4;
 	deletevehicle (_group_4_info select 0);
+	
+	{
+	//	deleteVehicle _x;
+	deletevehicle _x;
+	} forEach units _group_5;
+	deletevehicle (_group_5_info select 0);
+
+	DZAI_actTrigs = (DZAI_actTrigs - 1);
 };

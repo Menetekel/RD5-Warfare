@@ -1,12 +1,3 @@
-_vehicle_516 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_posed", [3711.8037, 5986.7705, 0.073181108], [], 0, "CAN_COLLIDE"];
-  _vehicle_516 = _this;
-  _this setDir 30.022511;
-  _this setPos [3711.8037, 5986.7705, 0.073181108];
-};
-
 _vehicle_520 = objNull;
 if (true) then
 {
@@ -181,7 +172,7 @@ if (true) then
 _vehicle_599 = objNull;
 if (true) then
 {
-  _this = createVehicle ["UH60_wreck_EP1", [3707.4988, 6008.5068, 3.2461047], [], 0, "NONE"];
+  _this = createVehicle ["Mi8Wreck", [3707.4988, 6008.5068, 3.2461047], [], 0, "NONE"];
   _vehicle_599 = _this;
   _this setDir -36.146439;
   _this setPos [3707.4988, 6008.5068, 3.2461047];

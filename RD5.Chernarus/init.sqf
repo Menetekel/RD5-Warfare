@@ -17,19 +17,18 @@ enableSentences false;
 
 // DayZ Epoch config
 spawnShoremode = 1; // Default = 1 (on shore)
-freshSpawn = 2; //0 - Normal Spawn / 1 - fresh spawn as zombie / 2 - fresh spawn as player
 spawnArea= 1500; // Default = 1500
 MaxHeliCrashes= 2; // Default = 5
 MaxVehicleLimit = 50; // Default = 50
 MaxDynamicDebris = 100; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
-dayz_maxLocalZombies = 50; // Default = 30
-dayz_maxGlobalZombiesInit = 20; // Default = 15
-dayz_maxGlobalZombiesIncrease = 7; // Default = 5
-dayz_maxZeds = 800; // Default = 500
+dayz_maxLocalZombies = 30; // Default = 30
+dayz_maxGlobalZombiesInit = 15; // Default = 15
+dayz_maxGlobalZombiesIncrease = 5; // Default = 5
+dayz_maxZeds = 400; // Default = 500
 dayz_paraSpawn = true;
 
-dayz_sellDistance_vehicle = 10;
+dayz_sellDistance_vehicle = 15;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
@@ -39,7 +38,7 @@ DynamicVehicleDamageLow = 15; // Default: 0
 DynamicVehicleDamageHigh = 100; // Default: 100
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
-dayz_fullMoonNights = true;
+dayz_fullMoonNights = false;
 DZE_TRADER_SPAWNMODE = false; // true = vehicle will para spawn, false = normal spawn mode
 DZE_BuildingLimit = 200; //Max buildings within 30m
 
@@ -77,7 +76,6 @@ if (isServer) then {
 	_wka = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\wkamenka.sqf";
 	_bike = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\bikes.sqf";
 	_gm = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\greenmountain.sqf";
-//	_klen = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\klen.sqf";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 };
 [] execVM "germandayz\safezone\safezone.sqf";
@@ -93,16 +91,17 @@ if (!isDedicated) then {
 	player_build = compile preprocessFileLineNumbers "germandayz\client\player_build.sqf";
 	fnc_usec_selfActions =		compile preprocessFileLineNumbers "germandayz\client\fn_selfActions.sqf";
 	fnc_usec_damageActions =	compile preprocessFileLineNumbers "germandayz\client\fn_damageActions.sqf";
+	_nul = [] execVM "germandayz\client\dzai_initclient.sqf";
+	[] execVM "germandayz\client\kh_actions.sqf"; 
 	//anti Hack
 	//[] execVM "\z\addons\dayz_code\system\antihack.sqf";
 
 	//Lights
-	[0,0,true,true,true,58,280,600,[0.698, 0.556, 0.419],"Generator_DZ",0.1] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+//	[0,0,true,true,true,58,280,600,[0.698, 0.556, 0.419],"Generator_DZ",0.1] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 };
 #include "\z\addons\dayz_code\system\REsec.sqf"
 //Start Dynamic Weather
 execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
-
 #include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
 
 //RD5

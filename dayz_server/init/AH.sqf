@@ -30,7 +30,7 @@ if ((preProcessFileLineNumbers ("normal_admins.sqf")) != "") then {
 };
 if ((preProcessFileLineNumbers ("super_admins.sqf")) != "") then {
 	_tmpSA = call compile preProcessFileLineNumbers "super_admins.sqf";
-//	_SuperLevel_List = _SuperLevel_List + _tmpSA;
+	_SuperLevel_List = _SuperLevel_List + _tmpSA;
 	_SuperLevel_List = _SuperLevel_List;
 };
 if ((preProcessFileLineNumbers ("blacklist.sqf")) != "") then {
@@ -1932,18 +1932,14 @@ PV_AdminMenuCode = {
 	};
 	NormalAdmin_Menu =
 	{
-		adminadd = adminadd + ["  Teleport Player To Me",admint2me,"0","0","0","1",[]];
 		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[]];
 		adminadd = adminadd + ["========================================================================================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Toggle TP Direction Keybind",admin_tpdirection_on,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
 		adminadd = adminadd + ["Markers","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Map Player Markers",adminmark,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Map Vehicle Markers",adminmarkveh,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Map Corpse Markers",adminDEAD,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Map Wreck Markers",adminwreck,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Map Tent Markers",admintent,"1","0","0","0",[]];
 		if (MOD_EPOCH) then {
 		adminadd = adminadd + ["  Map VAULT Markers",adminVAULT,"1","0","0","0",[]];
 		};
@@ -1957,38 +1953,47 @@ PV_AdminMenuCode = {
 		adminadd = adminadd + ["Misc","","0","1","0","0",[]];
 		adminadd = adminadd + ["  God",admingod,"1","0","0","0",[]];
 		adminadd = adminadd + ["  ZedShield",adminZedshld,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Repair Vehicle",adminrepair,"0","0","0","0",[]];
 		adminadd = adminadd + ["Targeted Friendly","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Heal Target",adminheal,"0","0","0","1",[]];
-		adminadd = adminadd + ["  Give Target +2500 Humanity",adminHumanityPlus,"0","0","0","1",[]];
-		adminadd = adminadd + ["  Give Target -2500 Humanity",adminHumanityMinus,"0","0","0","1",[]];
 		adminadd = adminadd + ["Targeted EVIL","","0","1","0","0",[]];
 		adminadd = adminadd + ["  RemoveGear Target",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["  Kill Target",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["  Kick",adminkick,"0","0","0","1",[0.99,0.8,0.8,1]];
 		
-		call admin_keybinds;
+		call admin_keybinds_normal;
 	};
 	LowAdmin_MENU =
 	{
+		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[]];
+		adminadd = adminadd + ["========================================================================================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
-
+		adminadd = adminadd + ["Markers","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Map Player Markers",adminmark,"1","0","0","0",[]];
+		adminadd = adminadd + ["  Map Vehicle Markers",adminmarkveh,"1","0","0","0",[]];
+		adminadd = adminadd + ["  Map Corpse Markers",adminDEAD,"1","0","0","0",[]];
+		adminadd = adminadd + ["  Map Wreck Markers",adminwreck,"1","0","0","0",[]];
+		if (MOD_EPOCH) then {
+		adminadd = adminadd + ["  Map VAULT Markers",adminVAULT,"1","0","0","0",[]];
+		adminadd = adminadd + ["  EpochDeathBoardLoad",adminPlayerDeaths,"0","0","0","0",[]];
+		};
+		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Map Icons",adminicons,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP Icons",adminESPicons,"1","0","0","0",[]];
 		adminadd = adminadd + ["Change Layout","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium",{Admin_Layout = 0;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Big",{Admin_Layout = 1;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["Toggleable Scripts","","0","1","0","0",[]];
-
-
-
-		adminadd = adminadd + ["  Map Player Markers",adminmark,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Map Vehicle Markers",adminmarkveh,"1","0","0","0",[]];
-		adminadd = adminadd + ["Targeted Scripts","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Break Target's Legs",adminbreakleg,"0","0","0","1",[]];
-		adminadd = adminadd + ["  Kill Target",adminkill,"0","0","0","1",[]];
+		adminadd = adminadd + ["Misc","","0","1","0","0",[]];
+		adminadd = adminadd + ["  God",admingod,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ZedShield",adminZedshld,"1","0","0","0",[]];
+		adminadd = adminadd + ["Targeted Friendly","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Heal Target",adminheal,"0","0","0","1",[]];
+		adminadd = adminadd + ["Targeted EVIL","","0","1","0","0",[]];
+		adminadd = adminadd + ["  RemoveGear Target",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
+		adminadd = adminadd + ["  Kill Target",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
+		adminadd = adminadd + ["  Kick",adminkick,"0","0","0","1",[0.99,0.8,0.8,1]];
 		
-		call admin_keybinds;
+		call admin_keybinds_low;
 	};
 	admin_keybinds = {
 		adminadd = adminadd + ["KEY-BINDINGS:","","0","1","0","0",[]];
@@ -2006,7 +2011,21 @@ PV_AdminMenuCode = {
 		adminadd = adminadd + ["README:","","0","1","0","0",[]];
 		adminadd = adminadd + ["  DoubleClick Player To Spectate","","0","1","0","0",[]];
 	};
-
+	admin_keybinds_normal = {
+		adminadd = adminadd + ["KEY-BINDINGS:","","0","1","0","0",[]];
+		adminadd = adminadd + ["  End - Toggle DebugMonitor","","0","1","0","0",[]];
+		adminadd = adminadd + ["  F9 - ShowGear Target","","0","1","0","0",[]];
+		adminadd = adminadd + ["  F10 - UnSpectate Target","","0","1","0","0",[]];
+		adminadd = adminadd + ["  DoubleClick Player To Spectate","","0","1","0","0",[]];
+	};
+	
+	admin_keybinds_low = {
+		adminadd = adminadd + ["KEY-BINDINGS:","","0","1","0","0",[]];
+		adminadd = adminadd + ["  End - Toggle DebugMonitor","","0","1","0","0",[]];
+		adminadd = adminadd + ["  F9 - ShowGear Target","","0","1","0","0",[]];
+		adminadd = adminadd + ["  F10 - UnSpectate Target","","0","1","0","0",[]];
+		adminadd = adminadd + ["  DoubleClick Player To Spectate","","0","1","0","0",[]];
+	};
 
 
 

@@ -117,11 +117,11 @@ if((count _offset) <= 0) then {
 _isPole = (_classname == "Plastic_Pole_EP1_DZ");
 _isLandFireDZ = (_classname == "Land_Fire_DZ");
 
-_distance = 30;
+_distance = 100; //radius for building objects
 _needText = localize "str_epoch_player_246";
 
 if(_isPole) then {
-	_distance = 45;
+	_distance = 200; //radius to prevent building around a plotpole
 };
 
 // check for near plot

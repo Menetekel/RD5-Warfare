@@ -8,7 +8,7 @@
 /* ********************************************************************************* */
 /*  LOW ADMIN HERE        */ _LowLevel_List =   ["0","0","0"]; //do not have a , at the end.
 /*  NORMAL ADMIN HERE     */ _NormalLevel_List =["0","0","0"]; //do not have a , at the end.
-/*  SUPER ADMIN HERE      */ _SuperLevel_List = ["1103810","61411782","87540166","1608386","5087682","29370438","72119302","115031046"]; //Vitus,Andro,Roddi,Starfish,John585,Paddy,Diiedeli,Siothie
+/*  SUPER ADMIN HERE      */ _SuperLevel_List = ["0","0","0"]; //Vitus,Andro,Roddi,Starfish,John585,Paddy,Diiedeli,Siothie
 /*  BANNED PLAYER HERE    */ _BLOCKED =         ["0","0","0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = 'DayZ Epoch'; //do not use ' or " in this text.

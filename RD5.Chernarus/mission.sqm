@@ -27,7 +27,7 @@ class Mission
 	class Intel
 	{
 		briefingName="DayZ Epoch Chernarus";
-		briefingDescription="DayZ Epoch Chernarus Private Server";
+		briefingDescription="RedDiamond 5 by GermanDayZ.de";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
 		year=2008;
@@ -1270,7 +1270,7 @@ class Mission
 		};
 		class Item14
 		{
-			position[]={12945.273,209.10101,12751.496};
+			position[]={12944.227,210.19823,12766.889};
 			name="HeroVendor";
 			text="Hero Vendor - SAFEZONE";
 			type="Defend";
@@ -1351,7 +1351,7 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={12946.349, 12766.593, 2.0980835e-005};
+			position[]={12944.227,210.19823,12766.889};
 			a=100;
 			b=100;
 			activationBy="WEST";

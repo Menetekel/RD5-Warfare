@@ -9,8 +9,8 @@ mission_spawn_standard = {
 	_crates = [];
 	_vehicle = 0;
 	_vehicle_spawn = false;
-	_paradrop = false;
-	_heli_reinforcements = false;
+	_paradrop = true;
+	_heli_reinforcements = true;
 	_max_crates = objNull;
 	
 	switch (_mission_type) do
@@ -104,12 +104,12 @@ mission_spawn_standard = {
 
 	
 	// SPAWN AI
-	// Inital Group 200 metre range, 6
-	_group_1_info = [(_mission_id + "-AIGroup1"), "AI", _position, 100, 6, 1] call mission_spawn_ai;
+	// Inital Group 100 metre range, 6
+	_group_1_info = [(_mission_id + "-AIGroup1"), "AI", _position, 100, 8, 1] call mission_spawn_ai;
 	_group_1 = _group_1_info select 1;
 	
-	// Second Group 80 metre range, 4
-	_group_2_info = [(_mission_id + "-AIGroup2"), "AI", _position, 50, 4, 2] call mission_spawn_ai;
+	// Second Group 250 metre range, 4
+	_group_2_info = [(_mission_id + "-AIGroup2"), "AI", _position, 250, 7, 2] call mission_spawn_ai;
 	_group_2 = _group_2_info select 1;
 	
 	// Third Group
@@ -117,36 +117,37 @@ mission_spawn_standard = {
 	_group_3 = objNull;
 	
 	// Fourth Group
-	_group_4_info = objNull;
-	
+	_group_4_info = [(_mission_id + "-AIGroup4"), "AI", _position, 400, 10, 3] call mission_spawn_ai;
+	_group_4 = _group_4_info select 1;
+
 	_chance = (random 10);
 	switch (true) do {
         
         case (_chance <= 2):
         {
 			// 20% Chance
-			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 300, 6, 0] call mission_spawn_ai;
+			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 300, 6, 3] call mission_spawn_ai;
 			_group_3 = _group_3_info select 1;
         };
         
         case (_chance <= 4):
         {
 			// 20% Chance
-			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 300, 3, 2] call mission_spawn_ai;
+			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 300, 5, 3] call mission_spawn_ai;
 			_group_3 = _group_3_info select 1;
         };
         
         case (_chance <= 7):
         {
 			// 30% Chance
-			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 300, 6, 1] call mission_spawn_ai;
+			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 400, 6, 3] call mission_spawn_ai;
 			_group_3 = _group_3_info select 1;
         };
         
         default
         {
 			// 30% Chance
-			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 300, 4, 1] call mission_spawn_ai;
+			_group_3_info = [(_mission_id + "-AIGroup3"), "AI", _position, 500, 5, 3] call mission_spawn_ai;
 			_group_3 = _group_3_info select 1;
 			_paradrop = true;
 			_heli_reinforcements = true;
@@ -156,7 +157,7 @@ mission_spawn_standard = {
 	// Player Markers
 	_marker_name = (_mission_id + "_player_marker");
 	if (_vehicle_spawn) then {
-		[_marker_name, _position, "ColorBlue", true] call mission_add_marker;
+		[_marker_name, _position, "ColorRed", true] call mission_add_marker;
 	} else {
 		[_marker_name, _position, "ColorRed", true] call mission_add_marker;
 	};
@@ -169,7 +170,7 @@ mission_spawn_standard = {
 	_timeout = time + mission_despawn_timer_min;
 	_spawn_ammo = true;
 	_isNear = false;
-	_heli_reinforcements = false;
+	_heli_reinforcements = true;
 	waitUntil{
 		sleep 15;
 		if ((_spawn_ammo) || (_heli_reinforcements) || (_paradrop)) then {
@@ -204,7 +205,7 @@ mission_spawn_standard = {
 	_timeout2 = _timeout + ((mission_despawn_timer_max - mission_despawn_timer_min)/2);
 	while {_isNear} do
 	{
-		_isNear = [_position, 500] call mission_nearbyPlayers;
+		_isNear = [_position, 1500] call mission_nearbyPlayers;
 		if ((!_isNear) && (time > _timeout)) then {
 			_isNear = false;
 		};
@@ -224,18 +225,23 @@ mission_spawn_standard = {
 
 	// Kill All AI + Triggers
 	{
-		_x setDamage 1;
+		deleteVehicle _x;
 	} forEach units _group_1;
 	deletevehicle (_group_1_info select 0);
 	
 	{
-		_x setDamage 1;
+		deleteVehicle _x;
 	} forEach units _group_2;
 	deletevehicle (_group_2_info select 0);
 	
 	{
-		_x setDamage 1;
+		deleteVehicle _x;
 	} forEach units _group_3;
 	deletevehicle (_group_3_info select 0);
 	
+	{
+		deleteVehicle _x;
+	} forEach units _group_4;
+	deletevehicle (_group_4_info select 0);
+DZAI_actTrigs = (DZAI_actTrigs - 1);
 };
