@@ -2245,7 +2245,6 @@ PV_AdminMenuCode = {
 					["Desert Soldier Uniform", [6],  "", -5, [["expression", format[_formatLine,"BAF_Soldier_DDPM"]]], "1", "1"],
 					["US Soldier Uniform", [7],  "", -5, [["expression", format[_formatLine,"US_Soldier_EP1"]]], "1", "1"],
 					["Czech Soldier Uniform", [8],  "", -5, [["expression", format[_formatLine,"CZ_Soldier_DES_EP1"]]], "1", "1"],
-					["Invisible Skin", [9],  "", -5, [["expression", format[_formatLine,"Survivor1_DZ"]]], "1", "1"],
 					["", [-1], "", -5, [["expression", ""]], "1", "0"],
 					["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 			];

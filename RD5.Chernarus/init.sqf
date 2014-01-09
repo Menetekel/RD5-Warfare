@@ -38,9 +38,9 @@ DynamicVehicleDamageLow = 15; // Default: 0
 DynamicVehicleDamageHigh = 100; // Default: 100
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
-dayz_fullMoonNights = false;
+dayz_fullMoonNights = true;
 DZE_TRADER_SPAWNMODE = false; // true = vehicle will para spawn, false = normal spawn mode
-DZE_BuildingLimit = 200; //Max buildings within 30m
+DZE_BuildingLimit = 250; //Max buildings within 30m
 
 //spawnmode
 DefaultMagazines = ["ItemBandage","ItemPainkiller"]; 
@@ -66,6 +66,17 @@ progressLoadingScreen 1.0;
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
 // Missions
 //dayz_spaceInterrupt = compile preprocessFileLineNumbers "extras\debug_monitor\dayz_spaceInterrupt.sqf";
+if ((!isServer) && (isNull player) ) then
+{
+waitUntil {!isNull player};
+waitUntil {time > 3};
+};
+
+if ((!isServer) && (player != player)) then
+{
+  waitUntil {player == player}; 
+  waitUntil {time > 3};
+};
 execVM "germandayz\side\init.sqf";
 if (isServer) then {
 	//Compile vehicle configs

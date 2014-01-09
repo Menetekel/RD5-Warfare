@@ -66,7 +66,7 @@ DZAI_passiveAggro = false;
 DZAI_refreshRate = 15;	
 
 //Maximum distance for AI group leader to detect zombies. Increasing range beyond default may impact server performance. (Default: 200)							
-DZAI_zDetectRange = 200;									
+DZAI_zDetectRange = 10;									
 
 //Enable or disable AI hostility to zombies. If enabled, AI will attack zombies. (default: true)
 DZAI_zombieEnemy = true;	
@@ -128,7 +128,7 @@ DZAI_dynDespawnWait = 120;
 --------------------------------------------------------------------------------------------------------------------*/		
 
 //Maximum number of active AI air vehicle patrols. Set at 0 to disable (Default: 0).							
-DZAI_maxHeliPatrols = 4;
+DZAI_maxHeliPatrols = 3;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinA = 900;
@@ -152,8 +152,8 @@ DZAI_airWeapons = [
 	[
 		//Corresponding weapon classnames (Remember: no comma for last entry! Otherwise, separate each string with commas)
 		"DSHKM",
-		"AirBombLauncher",
-		"AirBombLauncher"
+		"ZiS_S_53",
+		"ZiS_S_53"
 	]
 ];
 
@@ -166,7 +166,7 @@ DZAI_airWeapons = [
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Maximum number of active AI land vehicle patrols. Set at 0 to disable (Default: 0).	
-DZAI_maxLandPatrols = 4;
+DZAI_maxLandPatrols = 0;
 
 //Set minimum and maximum wait time in seconds to respawn an AI vehicle patrol after vehicle is destroyed or disabled. (Default: Min 600, Max 900).
 DZAI_respawnTMinL = 600;

@@ -25,12 +25,15 @@
 			_object removeWeapon "M3P";
 			_object addWeapon "BikeHorn";
 	};
-	if (_object isKindOf "Ural_ZUE23_Gue") then {
+	if (_object isKindOf "Ural_ZU23_GUE") then {
 			_object removeWeapon "2A14";
 	};
 	if (_object isKindOf "MQ9PredatorB") then {
 			_object removeWeapon "HellfireLauncher";
+			_object removeWeapon "HellfireLauncher";
+			_object removeMagazine "8Rnd_Hellfire";
 			_object addWeapon "M240_veh";
+			_object addMagazine "100Rnd_762x51_M240";
 			_object addMagazine "100Rnd_762x51_M240";
 	};
 	if (_object isKindOf "Pchela1T") then {
