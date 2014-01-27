@@ -1155,20 +1155,19 @@ class Mission
             {
                 items=1;
                 class Item0
-                {
-                    position[]={12875.899, 0.017633088, 10135.217};
-                    azimut=84;
-					id=101;
-                    side="CIV";
-					vehicle="Citizen1";
-                    player="PLAY CDG";
-                    forceHeadlessClient=1;
+				{
+					position[]={4078.8516,30.836605,4757.7241};
+					id=0;
+					side="CIV";
+					vehicle="Survivor1_DZ";
+					player="PLAYER COMMANDER";
 					skill=0.60000002;
-                    text="HClient";
-                    init="this allowDamage false; this setCaptive true;";
-					leader=1;
-  					description="GermanDayZ.de HClient";                 
-                };
+					text="HeadlessClient";
+					init="this allowDamage false";
+					description="HeadlessClient";
+					name="HeadlessClient";
+					forceHeadlessClient=1;
+				};
             };
         };
 		class Item2
