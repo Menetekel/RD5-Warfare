@@ -10,7 +10,9 @@
 
 private ["_patrolDist","_trigger","_grpArray","_triggerPos","_equipType","_weapongrade","_totalAI","_startTime","_tMarker"];
 if (!isServer) exitWith {};
-
+//if(elec_stop_exec == 1) exitWith{};
+//if (!hasInterface && !isServer) then {
+ 
 _startTime = diag_tickTime;
 
 _totalAI = _this select 0;									
@@ -76,3 +78,4 @@ _equipType = switch (_weapongrade) do {
 0 = [_trigger,[_unitGroup],_patrolDist,_equipType,[],[_totalAI,0]] call DZAI_setTrigVars;
 
 _unitGroup
+//};

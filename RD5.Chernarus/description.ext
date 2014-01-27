@@ -183,3 +183,5 @@ class RscTitles {
                 };
         };
 };
+#include "germandayz\ai\SARGE\SAR_define.hpp"
+#include "germandayz\snap_build\points.hpp"

@@ -538,7 +538,7 @@ if(isServer) then {
 	//dayz_flyMonitor = [];		//used for monitor flies
 	//DZE_FlyWorkingSet = [];
 
-	DZE_safeVehicle = ["ParachuteWest","ParachuteC"];
+	DZE_safeVehicle = ["ParachuteWest","ParachuteC","Old_bike_TK_CIV_EP1"];
 	
 };
 

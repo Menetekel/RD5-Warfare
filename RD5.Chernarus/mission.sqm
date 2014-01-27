@@ -37,7 +37,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			side="WEST";
@@ -1137,7 +1137,7 @@ class Mission
 				};
 				class Item99
 				{
-					position[]={20385.828,0.18072389,-5038.2021};
+					position[]={-7246.0605,365.94415,19535.738};
 					azimut=-17.0839;
 					id=95;
 					side="WEST";
@@ -1149,6 +1149,29 @@ class Mission
 			};
 		};
 		class Item1
+        {
+            side="CIV";
+            class Vehicles
+            {
+                items=1;
+                class Item0
+                {
+                    position[]={12875.899, 0.017633088, 10135.217};
+                    azimut=84;
+					id=101;
+                    side="CIV";
+					vehicle="Citizen1";
+                    player="PLAY CDG";
+                    forceHeadlessClient=1;
+					skill=0.60000002;
+                    text="HClient";
+                    init="this allowDamage false; this setCaptive true;";
+					leader=1;
+  					description="GermanDayZ.de HClient";                 
+                };
+            };
+        };
+		class Item2
 		{
 			side="LOGIC";
 			class Vehicles
@@ -1169,7 +1192,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=18;
+		items=19;
 		class Item0
 		{
 			position[]={7550.6182,361.05222,8371.957};
@@ -1299,6 +1322,14 @@ class Mission
 			text="Military Camp - SAFEZONE";
 			type="Headquarters";
 			colorName="ColorGreen";
+		};
+		class Item18
+		{
+		position[]={5054.0127,14.798248,9736.8398};
+		name="AirVehicles";
+		text="Aircraft Dealer";
+		type="Airport";
+		colorName="ColorOrange";
 		};
 	};
 	class Sensors

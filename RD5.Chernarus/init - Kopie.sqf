@@ -1,13 +1,11 @@
-//DETECT HC===
 elec_HC_detect = ["on"] execVM "germandayz\elec_HC_detect.sqf"; 
 waitUntil {scriptDone elec_HC_detect};
-//============
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
 enableSaving [false, false];
 
 //REALLY IMPORTANT VALUES
-dayZ_instance =	1;
+dayZ_instance =	1;					//The instance
 dayzHiveRequest = [];
 initialized = false;
 dayz_previousID = 0;
@@ -32,7 +30,7 @@ dayz_maxGlobalZombiesIncrease = 5; // Default = 5
 dayz_maxZeds = 400; // Default = 500
 dayz_paraSpawn = true;
 
-dayz_sellDistance_vehicle = 20;
+dayz_sellDistance_vehicle = 15;
 dayz_sellDistance_boat = 30;
 dayz_sellDistance_air = 40;
 
@@ -64,8 +62,7 @@ progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";				//Compile regular functions
 //call compile preprocessFileLineNumbers "germandayz\client\compiles.sqf";
 progressLoadingScreen 0.5;
-//call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
-call compile preprocessFileLineNumbers "new_traders.sqf";				//Compile trader configs
+call compile preprocessFileLineNumbers "server_traders.sqf";				//Compile trader configs
 progressLoadingScreen 1.0;
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
 //Epoch Warfare by GermanDayZ.de
@@ -82,33 +79,53 @@ if ((!isServer) && (player != player)) then
   waitUntil {player == player}; 
   waitUntil {time > 3};
 };
-//==============================
+
+execVM "germandayz\side\init.sqf";
+
 if (isServer) then {
+	//Compile vehicle configs
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\rd5.Chernarus\dynamic_vehicle.sqf";				
+	// Add trader citys
+	_nil = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\mission.sqf";
+	_bar = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\barracks.sqf";
+	_wka = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\wkamenka.sqf";
+	_bike = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\bikes.sqf";
+	_gm = [] execVM "\z\addons\dayz_server\missions\rd5.Chernarus\greenmountain.sqf";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 };
+[] execVM "germandayz\safezone\safezone.sqf";
 if (!isDedicated) then {
-//Conduct map operations
+	//Conduct map operations
 	0 fadeSound 0;
 	waitUntil {!isNil "dayz_loadScreenMsg"};
-	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");	
+	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+	
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
-//=====VariableFixes=====
-//	player_build = 				compile preprocessFileLineNumbers "germandayz\client\player_build.sqf";
+	player_build = compile preprocessFileLineNumbers "germandayz\client\player_build.sqf";
 	fnc_usec_selfActions =		compile preprocessFileLineNumbers "germandayz\client\fn_selfActions.sqf";
 	fnc_usec_damageActions =	compile preprocessFileLineNumbers "germandayz\client\fn_damageActions.sqf";
-//Snapping
-	player_build		= compile preprocessFileLineNumbers "germandayz\snap_build\player_build.sqf";
-	player_buildControls	= compile preprocessFileLineNumbers "germandayz\snap_build\player_buildControls.sqf";
-	snap_object		= compile preprocessFileLineNumbers "germandayz\snap_build\snap_object.sqf";
-//=====VariableFixes=====
+	_nul = [] execVM "germandayz\client\dzai_initclient.sqf";
+	[] execVM "germandayz\client\kh_actions.sqf"; 
+	[] execVM "germandayz\greetings.sqf"; 
+	//anti Hack
+	//[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+
+	//Lights
+//	[0,0,true,true,true,58,280,600,[0.698, 0.556, 0.419],"Generator_DZ",0.1] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 };
-//Default Epoch RemoteExec Security, BIS Effects, DynamicWeather
-//#include "\z\addons\dayz_code\system\REsec.sqf"
-#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+#include "\z\addons\dayz_code\system\REsec.sqf"
+//Start Dynamic Weather
 execVM "\z\addons\dayz_code\external\DynamicWeatherEffects.sqf";
+#include "\z\addons\dayz_code\system\BIS_Effects\init.sqf"
+_nul = execVM "debug_hint.sqf";
+//RD5
+/***** Sarge AI *****/
+call compile preprocessFileLineNumbers "germandayz\AI\UPSMON\scripts\Init_UPSMON.sqf";
+call compile preprocessfile "germandayz\AI\SHK_pos\shk_pos_init.sqf";
+[] execVM "germandayz\AI\SARGE\SAR_AI_init.sqf";
+//GD EDITS
 dayZ_serverName = "GD-RD5";
 if (!isNil "dayZ_serverName") then {
 	[] spawn {

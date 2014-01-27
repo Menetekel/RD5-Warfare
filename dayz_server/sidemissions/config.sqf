@@ -109,14 +109,12 @@ mission_patrol_land_vehicles = [
 
 // Type of Vehicles to Spawn @ Missions to Loot
 mission_dynamic_ai_vehicles = [
-["CSJ_GyroC",1],
-["CSJ_GyroCover",1],
-["CSJ_GyroP",1],
+["CSJ_GyroC",2],
 ["datsun1_civil_1_open",1],
 ["datsun1_civil_2_covered",1],
 ["datsun1_civil_3_open",1],
-["GLT_M300_LT",1],
-["GLT_M300_ST",1],
+["GLT_M300_LT",2],
+["GLT_M300_ST",2],
 ["HMMWV_Ambulance",1],
 ["HMMWV_Ambulance_CZ_DES_EP1",1],
 ["HMMWV_DES_EP1",1],
@@ -131,7 +129,7 @@ mission_dynamic_ai_vehicles = [
 ["Ural_CDF",1],
 ["Ural_TK_CIV_EP1",1],
 ["Ural_UN_EP1",1],
-["MAZ_543_SCUD_TK_EP1",
-["BTR40_TK_INS_EP1"],
-["M113Ambul_TK_EP1_DZ"]
+["MAZ_543_SCUD_TK_EP1",1],
+["BTR40_TK_INS_EP1",1],
+["M113Ambul_TK_EP1_DZ",1]
 ];
